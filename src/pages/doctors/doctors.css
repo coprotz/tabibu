@@ -1,0 +1,49 @@
+.doctors_wrapper{
+    background-color: #0d42d5;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+}
+
+.doctors_top{
+    position: sticky;
+    height: 10vh;
+    top: 0;
+    background-color: #0433b3;
+    padding: 2vh;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5vh;
+    margin-bottom: 1.2vh;
+}
+
+.doctors_grid{
+    padding: 1.3vh 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 90vh;
+    overflow-y: scroll;
+    background-color: #0d42d5;
+}
+
+.doctor_card{
+    background-color: #6584d9;
+    color: white;
+    padding: 1.3vh;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.doctor_label{
+    width: 25px;
+    height: 25px;
+    border: 2px solid white;
+    background-color: #9bb0ea;
+}
+
+.doctor_selected{
+    width: 25px;
+    height: 25px;
+    border: 5px solid white;
+    background-color: #0433b3;
+}

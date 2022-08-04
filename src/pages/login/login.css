@@ -1,0 +1,46 @@
+.login_container{
+    width: 100vw;
+    height: 100vh;
+    background-color:#0d42d5;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.lang_change{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    align-items: center;
+    color: white;
+}
+
+.btn_google{
+    background-color: white;
+    padding: 2vh 4vw;
+    font-size: 3vh;
+    border: none;
+    /* margin-top: 15vh; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px
+}
+
+.logo_chat{
+    width: 110px;
+    height: 110px;
+}
+
+.login_body{
+    height: calc(100vh - 180px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+

@@ -1,0 +1,44 @@
+.btn-lang{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 1.2vh;
+    gap: 0.9vw;
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    font-size: 2vh;
+}
+nav{
+    padding: 1.2vh;
+    height: 8vh;
+}
+
+.btn-menu{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 1vh;
+    gap: 5px;
+    border: 1px solid white;
+    border-radius: 3px;
+    background-color: white;
+    font-size: 2.5vh;
+}
+
+.btn-clear{
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vh;
+    height: 22px;
+    width: 22px;
+    background-color: #7b9dfa;
+    border-radius: 50%;
+}
+.app-nav-left{
+    display: flex;
+    gap: 5px;
+}

@@ -1,0 +1,83 @@
+.view_doc_outer{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.view_doc_container{
+    width: 90vw;
+    max-height: 90vh;
+    overflow-y: scroll;
+    background-color: white
+}
+
+.profile_photo_img{
+    width: 90vw;
+    position: relative;
+}
+
+.btn_cons{
+    position: absolute;
+    bottom: 15px;
+    right: 15px ;
+    padding: 15px 18px;
+    background: #052786b7;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    font-size: 2.5vh;
+}
+
+
+
+.doc_view_top{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.profile_inner{
+    padding: 10px;
+    background-color: #0d42d5;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile_inner_group{
+    background-color: #0d42d5;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: white;
+    
+}
+
+.profile_inner_group label{
+    font-size: 17px;
+    color: rgb(54, 210, 30) !important;
+}
+
+.profile_inner_group h2{
+    color: white;
+}
+
+.doc_specs{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 130px); 
+    width: 100%;
+}
+
+.doc_specs span{
+    padding: 5px 15px;
+    border-radius: 15px;
+    background-color: #052886;
+    margin: 5px;
+    width: fit-content;
+}
+
