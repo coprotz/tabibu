@@ -74,8 +74,8 @@ const ChatRoom = ({currentRoom}) => {
             ))}          
             {/* <span ref={scrollRef}>ALLY</span>         */}
         </div>
-        
-        <form onSubmit={handleSubmit} className='form_wrapper'>
+        <div className="form_action">
+             <form onSubmit={handleSubmit} className='form_wrapper'>
                 <textarea 
                     name=""
                     value={message}
@@ -89,7 +89,10 @@ const ChatRoom = ({currentRoom}) => {
                     disabled={!message}
                     className="btn_send"
                     >{loading ? 'Sending...' : 'Send'}</button>
-        </form>
+          </form>
+        </div>
+        
+     
     </div>
   )
 }

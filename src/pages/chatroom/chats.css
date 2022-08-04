@@ -2,3 +2,8 @@
     display: flex;
     
 }
+
+.form_action{
+    background-color: #3266f8;
+    padding: 10px;
+}

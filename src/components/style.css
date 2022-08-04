@@ -64,7 +64,11 @@ nav{
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    /* height: calc(100vh - 0px); */
+    height: calc(100vh - 50px);
+    background-image: url('../components/images/dr.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     
     
 }
@@ -131,7 +135,7 @@ nav{
 }
 
 .grey{
-    background-color: #cfcfcf;
+    background-color: white;
     border-radius: 0px 15px 5px 5px;
     color: black;
 }
@@ -170,27 +174,35 @@ nav{
 
 .form_wrapper{
     display: flex;
-    /* background-color: cadetblue; */
-    border: 1px solid #cfcfcf;
+    background-color: white;
+    /* border: 1px solid red; */
+    border-radius: 25px;
     
 }
 
 .text_input{
     width: 100%;
-    padding: 10px;
-    font-size: 20px;
+    /* padding: 10px; */
+    font-size: 17px;
     border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    outline: none;
+    padding-top: 15px;
+    padding-left: 10px;
+    /* border: 1px solid red; */
 }
 
 button:disabled{
-    background-color: #dcdcdc;
+    background-color: transparent;
     color: #afafaf;
 }
 
 .btn_send{
     width: 70px;
-    color: white;
-    background-color: #3266f8;
+    color: #3266f8;
+    background-color: transparent;
     border: none;
     font-size: 20px;
 }

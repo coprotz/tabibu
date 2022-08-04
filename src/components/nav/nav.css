@@ -2,28 +2,28 @@
     display: flex;
     align-items: center;
     background-color: transparent;
-    padding: 1.2vh;
+    padding: 6px;
     gap: 0.9vw;
     border: 1px solid white;
     border-radius: 3px;
     color: white;
-    font-size: 2vh;
+    font-size: 15px;
 }
 nav{
     padding: 1.2vh;
-    height: 8vh;
+    height: 70px;
 }
 
 .btn-menu{
     display: flex;
     align-items: center;
     background-color: transparent;
-    padding: 1vh;
+    padding: 0 6px;
     gap: 5px;
     border: 1px solid white;
     border-radius: 3px;
     background-color: white;
-    font-size: 2.5vh;
+    font-size: 15px;
 }
 
 .btn-clear{

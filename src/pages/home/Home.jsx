@@ -37,7 +37,7 @@ const Home = () => {
                 <img src={logo} alt="" className='img'/>
             </div>
         </div>
-        <div className="home_container">
+        <div className="home_container">            
            <Nav />
            <div className="search_box">
              <Search setSearchTerm={setSearchTerm}/>
@@ -73,10 +73,7 @@ const Home = () => {
                 {/* </div> */}
              </div>}
            </div>
-           
-
-            
-            <div className="depts">
+             <div className="depts">
                 <h3 className='room-title'>Departments</h3>
                 <div className="depts-container">
                     {departments.map((item) => (
