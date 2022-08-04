@@ -8,7 +8,7 @@ const PrivateRoom = () => {
     const navigate = useNavigate()
     const currentRoom = doctors.find(d => d.id === id)
 
-    console.log('id', id)
+    // console.log('id', id)
 
   return (
     <div>

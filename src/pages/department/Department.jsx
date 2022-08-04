@@ -18,7 +18,7 @@ const Department = ({}) => {
     const { id } = useParams()
     const navigate = useNavigate()
     const currentRoom = departments.find(d => d.id === id)
-    console.log('id', id)
+    // console.log('id', id)
 
     const { viewDoctor, setViewDoctor } = useContext(ProfileContext)
 
@@ -34,7 +34,7 @@ const Department = ({}) => {
     }
 
     const roomDocs = doctors.filter(d => d.groupId === id)
-    console.log('doctors', roomDocs)
+    // console.log('doctors', roomDocs)
 
     const [scroll, setScroll] = useState(false);
     useEffect(() => {

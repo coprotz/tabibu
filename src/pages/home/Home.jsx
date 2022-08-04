@@ -24,7 +24,7 @@ const Home = () => {
     const [doctor, setDoctor] = useState("")
     const dr = doctors.find((d) => d.id === doctor)
 
-    console.log('doctor', viewDoctor)
+    // console.log('doctor', viewDoctor)
     const [searchTerm, setSearchTerm] = useState("")
 
   return (
