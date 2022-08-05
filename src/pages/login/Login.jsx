@@ -46,7 +46,7 @@ const Login = () => {
         </div>
         <div className="login_wrapper">
             <button className='btn_google' onClick={signWithGoogle}> <FcGoogle/>SignIn with Google</button>
-            {user && user.displayName}
+            {/* {user && user.displayName} */}
         </div>
       </div>
       <small className='empowered'>Empowered by BarruTech</small>
