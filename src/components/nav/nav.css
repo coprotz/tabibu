@@ -12,6 +12,12 @@
 nav{
     padding: 1.2vh;
     height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#0d42d5 !important;
+    /* position: relative; */
 }
 
 .btn-menu{
@@ -41,4 +47,83 @@ nav{
 .app-nav-left{
     display: flex;
     gap: 5px;
+}
+
+.app_menu_outer{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.app_menu{
+    height: 95vh;
+    width: 90vw;
+    background-color: #0d42d5;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.app_menu_head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.username_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #4d72d6;
+    border-radius: 5px;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.username_photo{
+    width: 35px;
+    height: 35px;
+}
+
+.app_menu_lists{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* align-items: center; */
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.app_menu_list_item{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    padding: 10px;
+    font-size: 17px;
+    min-height: 2vh;
+}
+
+.btn_logout{
+    padding: 12px 15px;
+    border: none;
+    background-color: #062374;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 15px;
+}
+
+.qr_code{
+    width: 150px;
+    margin: 0 auto;
+}
+
+.img_code{
+    width: 100%;
 }

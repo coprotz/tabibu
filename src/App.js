@@ -1,7 +1,7 @@
 import {  useAuthState } from 'react-firebase-hooks/auth'
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import { auth } from './config';
+import { auth, useAuth } from './config';
 import ChatRoom from './pages/chatroom/ChatRoom';
 import Login from './pages/login/Login';
 import Navbar from './components/Navbar';
@@ -14,12 +14,17 @@ import Doctors from './pages/doctors/Doctors';
 import PrivateRoom from './pages/chatroom/PrivateRoom';
 
 
+
 function App() {
   const [currentRoom, setCurrentRoom] = useState("General")
-  const [user] = useAuthState(auth)
+  const { user } = useAuth()
+  // const [user] = useAuthState(auth)
   const [loading, setLoading] = useState(true)
   const [viewDoc, setViewDoc] = useState(null)
   const [viewDoctor, setViewDoctor] = useState(null)
+
+
+  console.log('user', user)
 
   useEffect(() => {
     setTimeout(() => {
@@ -38,9 +43,10 @@ function App() {
         <BrowserRouter>
           <Routes>          
             <Route path='/' element={
-              <RequireAuth>
-                <Home user={user}/>
-              </RequireAuth>
+           
+                user ? <Home/> : <Navigate to="/login"/>
+                
+         
               }/>
             <Route path='/depart/:id' element={
               <RequireAuth>

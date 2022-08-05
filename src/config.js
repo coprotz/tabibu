@@ -1,3 +1,4 @@
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from "firebase/firestore";
 
@@ -6,11 +7,12 @@ import {
     // signOut, 
     // signInWithEmailLink, 
     // signInWithEmailAndPassword,
-    getAuth,
+    getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut,
     // sendSignInLinkToEmail, 
     // isSignInWithEmailLink,
     // createUserWithEmailAndPassword
 } from 'firebase/auth'
+
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_KEY,
@@ -22,9 +24,46 @@ const firebaseConfig = {
   };
 
 const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const auth = getAuth(app);
 
-    export const db = getFirestore(app);
-    export const auth = getAuth(app);
+const AuthContext = createContext()
+
+
+
+export function AuthProvider({ children }){
+  const [user, setUser] = useState(null)
+
+  function googleSignIn(){
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider)
+  }
+
+  function logOut(){
+    return signOut(auth)
+  }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
+      setUser(user)
+    })
+    return () => {
+      unsubscribe()
+    }
+  },[])
+
+  return (
+    <AuthContext.Provider value={{ user, googleSignIn, logOut }}>
+        {children}
+    </AuthContext.Provider>
+  )
+}
+
+export function useAuth(){
+  return useContext(AuthContext)
+}
+
+
 
     // export const firebaseRef = firebase;
 

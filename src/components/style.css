@@ -82,8 +82,21 @@ nav{
     /* color: #f3f3f3; */
 }
 
+.btn_send_msg{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3266f8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    aspect-ratio: 1;
+}
+
 .messages_wrapper{
-    height: calc(100vh - 130px);
+    height: 100%;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;

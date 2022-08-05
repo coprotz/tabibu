@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { auth, db } from '../../config';
 import './chats.css'
 import MessageCard from '../../components/MessageCard';
+import SendForm from '../../components/sendForm/SendForm';
 
 
 
@@ -37,29 +38,29 @@ const ChatRoom = ({currentRoom}) => {
     },[])
 
 
-    const handleSubmit = async(e) => {
-        e.preventDefault()
-        setLoding(true)
-        const data = {
-                uid,
-                photoURL,
-                createdAt: serverTimestamp(),
-                text: message,
-                room: currentRoom,
-                displayName
-        }
+    // const handleSubmit = async(e) => {
+    //     e.preventDefault()
+    //     setLoding(true)
+    //     const data = {
+    //             uid,
+    //             photoURL,
+    //             createdAt: serverTimestamp(),
+    //             text: message,
+    //             room: currentRoom,
+    //             displayName
+    //     }
 
-        try {
-            await addDoc(messageRef, data)
-            setLoding(null);
-            setMessage('');
+    //     try {
+    //         await addDoc(messageRef, data)
+    //         setLoding(null);
+    //         setMessage('');
             
-        } catch (error) {
-            console.log(error.message)
-        }
-        // scrollRef.current.scrollIntoView({ behavior: 'smooth' })
+    //     } catch (error) {
+    //         console.log(error.message)
+    //     }
+    //     scrollRef.current.scrollIntoView({ behavior: 'smooth' })
       
-    };
+    // };
 
   return (
     <div className='messages' >
@@ -74,7 +75,8 @@ const ChatRoom = ({currentRoom}) => {
             ))}          
             {/* <span ref={scrollRef}>ALLY</span>         */}
         </div>
-        <div className="form_action">
+        <SendForm currentRoom={currentRoom}/>
+        {/* <div className="form_action">
              <form onSubmit={handleSubmit} className='form_wrapper'>
                 <textarea 
                     name=""
@@ -90,7 +92,7 @@ const ChatRoom = ({currentRoom}) => {
                     className="btn_send"
                     >{loading ? 'Sending...' : 'Send'}</button>
           </form>
-        </div>
+        </div> */}
         
      
     </div>
