@@ -1,0 +1,38 @@
+.notific_wrapper{
+    position: absolute;
+    top: 50px;
+    left: -160px;
+    background-color: white;
+    color: black;
+    width: 320px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.notific_card{
+    display: flex;
+    gap: 5px;
+    /* flex-direction: column; */
+    padding: 15px;
+    border-bottom: 1px solid #aaaaaa;
+  
+}
+
+.notific_photo{
+    width: 35px;
+    height: 35px;
+    aspect-ratio: 1;
+}
+
+.btns_actions_to{
+    display: flex;
+    gap: 5px;
+}
+
+.btns_actions_to button{
+    padding: 5px;
+    background-color: transparent;
+    color: #062374;
+    font-size: 15px;
+    border: none;
+    
+}

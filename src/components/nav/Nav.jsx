@@ -1,24 +1,40 @@
 import React, { useState } from 'react'
 import { HiMenuAlt4, HiOutlineGlobeAlt } from "react-icons/hi";
+import { useNavigate, useParams } from 'react-router-dom'
 import './nav.css'
 import { useAuth } from '../../config';
-import { MdClear } from "react-icons/md";
+import { MdClear, MdNotificationsNone } from "react-icons/md";
 import qr from '../../components/images/qrcode.png'
+import Notific from '../notific/Notific';
 
 const Nav = () => {
 
   const { user, logOut } = useAuth()
   const [menu, setMenu] = useState(null)
+  const [viewNot, setViewNot] = useState(null)
+  const handleChange = (page) => {
+    navigate(page)
+    setMenu(false)
+  }
+  const navigate = useNavigate()
  
   return (
     <nav>
-        
+       
         <div className="app-name">TABIBU<strong>CHAT</strong></div>
         
         <div className="app-nav-left">
+            <div className="notific_app">
+              <span className='span_notific'>5</span>
+              <button className='btn_notific' onClick={() => setViewNot(true)}><MdNotificationsNone/></button>
+              {viewNot && 
+              <Notific  setViewNot={setViewNot}/>}
+            </div>
+            
             <button className='btn-lang'><HiOutlineGlobeAlt/> English</button>
             {user && <>           
-              <button className='btn-menu' onClick={() => setMenu(true)}><HiMenuAlt4/></button>
+              
+            <button className='btn-menu' onClick={() => setMenu(true)}><HiMenuAlt4/></button>
               {menu &&
               <div className="app_menu_outer">
                 <div className="app_menu">                 
@@ -30,19 +46,21 @@ const Nav = () => {
                       <img src={qr} alt="" className='img_code'/>
                     </div>
                     <div className="app_menu_lists">
-                      <div className="username_title">
+                      <div className="username_title" onClick={() => handleChange('/account')}>
                         <div className="username_photo">
-                          <img src={user.photoURL} alt="" className='img'/>
+                          {user? 
+                          <img src={user.photoURL} alt="" className='img'/>:
+                          <span className='user_icon'>{user.displayName[0]}</span>}
                         </div>
                         <h4>{user.displayName}</h4>
                       </div>
-                      <span className='app_menu_list_item'>Home</span>
-                      <span className='app_menu_list_item'>About</span>
-                      <span className='app_menu_list_item'>Pricing</span>
-                      <span className='app_menu_list_item'>Subscription</span>
-                      <span className='app_menu_list_item'>Contact Us</span>
-                      <span className='app_menu_list_item'>Privacy</span>
-                      <span className='app_menu_list_item'>Terms of Use</span>
+                      <span className='app_menu_list_item' onClick={() => handleChange('/')}>Home</span>
+                      <span className='app_menu_list_item' onClick={() => handleChange('/about')}>About</span>
+                      <span className='app_menu_list_item' onClick={() => handleChange('/pricing')}>Pricing</span>
+                      <span className='app_menu_list_item' onClick={() => handleChange('/subscribe')}>Subscription</span>
+                      <span className='app_menu_list_item' onClick={() => handleChange('/contact')}>Contact Us</span>
+                      <span className='app_menu_list_item' onClick={() => handleChange('/privacy')}>Privacy</span>
+                      <span className='app_menu_list_item' onClick={() => handleChange('/terms')}>Terms of Use</span>
                       <button className='btn_logout' onClick={() =>logOut()}>LOG OUT</button>
                     </div>
                     <div className="app_footer">

@@ -12,6 +12,8 @@ import Department from './pages/department/Department';
 import { ProfileContext } from './components/hook/context/ProfileContext';
 import Doctors from './pages/doctors/Doctors';
 import PrivateRoom from './pages/chatroom/PrivateRoom';
+import About from './pages/about/About';
+import Account from './pages/account/Account';
 
 
 
@@ -33,7 +35,7 @@ function App() {
   }, [])
 
   const RequireAuth = ({children}) => {
-    return user ? (children) : <Navigate to="/login"/>
+    return user && user ? (children) : <Navigate to="/login"/>
   }
 
   return (
@@ -42,20 +44,19 @@ function App() {
       <ProfileContext.Provider value={{viewDoctor, setViewDoctor}}>     
         <BrowserRouter>
           <Routes>          
-            <Route path='/' element={
-           
-                user ? <Home/> : <Navigate to="/login"/>
-                
-         
+            <Route exact path='/' element={
+              <RequireAuth>
+                <Home/>
+              </RequireAuth>
               }/>
             <Route path='/depart/:id' element={
               <RequireAuth>
-                <Department user={user}/>
+                <Department />
               </RequireAuth>              
               }/>
               <Route path='/private/:id' element={
               <RequireAuth>
-                <PrivateRoom user={user}/>
+                <PrivateRoom/>
               </RequireAuth>              
               }/>
             <Route path='/doctors' element={
@@ -65,6 +66,8 @@ function App() {
             
             }/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/account' element={<Account/>}/>
           </Routes>
         </BrowserRouter> 
       </ProfileContext.Provider>
