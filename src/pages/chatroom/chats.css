@@ -7,3 +7,144 @@
     background-color: #3266f8;
     padding: 10px;
 }
+
+.private_comp_top{
+    background-color: #3266f8; 
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    height: 90px;
+    position: sticky;
+    top: 0;
+}
+
+.private_photo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* border: 1px solid red; */
+}
+
+.member_wrap{
+    display: flex;
+    flex-direction: column;
+}
+
+.private_room_photo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.wraper_iiner{
+    display: flex;
+    /* border: 1px solid red; */
+}
+
+.member_specs{
+    display: flex;
+    font-size: 14px;
+    width: 10ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+}
+
+.private_wrapper{
+    /* background-color: #3266f8; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    /* gap: 7px; */
+    width: 100%;
+    height: 100vh;
+    /* border: 1px solid red; */
+    overflow: hidden;
+
+   
+    
+}
+
+.session_time{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: rgb(193, 193, 193);
+    color: grey;
+    font-size: 17px;
+    /* color: white; */
+    gap: 7px;
+    border-radius: 7px;
+}
+
+.session_time svg{
+    color: grey;
+    font-size: 25px;
+}
+
+.session_time_run{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border: none;    
+    background-color: white;
+    font-size: 17px;
+    /* color: white; */
+    gap: 7px;
+    border-radius: 7px;
+}
+
+
+.session_time_run svg{
+    color: red;
+    font-size: 25px;
+}
+
+.session_inner{
+    display: flex;
+    flex-direction: column;
+}
+
+.private_comp_body{
+    height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.member_status{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #00FF00 !important;
+}
+
+.member_off{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #aaa !important;
+}
+
+.member_action{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.member_action button{
+    background-color: transparent;
+    font-size: 15px;
+    border: none;
+    color: #aaa;
+}

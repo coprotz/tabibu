@@ -1,7 +1,7 @@
 import {  useAuthState } from 'react-firebase-hooks/auth'
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import { auth, useAuth } from './config';
+import { auth, db, useAuth } from './config';
 import ChatRoom from './pages/chatroom/ChatRoom';
 import Login from './pages/login/Login';
 import Navbar from './components/Navbar';
@@ -14,6 +14,10 @@ import Doctors from './pages/doctors/Doctors';
 import PrivateRoom from './pages/chatroom/PrivateRoom';
 import About from './pages/about/About';
 import Account from './pages/account/Account';
+import { collection, onSnapshot } from 'firebase/firestore';
+import SingleDoctor from './pages/doctors/SingleDoctor';
+import Profile from './pages/profile/Profile';
+import Register from './pages/register/Register';
 
 
 
@@ -24,15 +28,80 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [viewDoc, setViewDoc] = useState(null)
   const [viewDoctor, setViewDoctor] = useState(null)
+  // const [privates, setPrivates] = useState([])
+  const [departments, setDepartments] = useState(null)
+  const [privates, setPrivates] = useState([])
+  const [doctors, setDoctors] = useState(null)
+  const [messages, setMessages] = useState(null)
+  // const userPrivates = privates && privates.filter((p) => p.members.find(m => m.includes(user.uid)))
+
+  useEffect(() => {
+    fetch('http://localhost:8000/departments')
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        setDepartments(data)
+        console.log(data)
+    })
+},[])
+
+useEffect(() => {
+  fetch('http://localhost:8000/messages')
+  .then(res => {
+      return res.json();
+  })
+  .then(data => {
+      setMessages(data)
+      console.log(data)
+  })
+},[])
+
+useEffect(() => {
+    fetch('http://localhost:8000/doctors')
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        setDoctors(data)
+        console.log(data)
+    })
+},[])
+
+useEffect(() => {
+    fetch('http://localhost:8000/privates')
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        setPrivates(data)
+        console.log(data)
+    })
+},[])
 
 
-  console.log('user', user)
+  // console.log('privates', user.uid)
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
     }, 3000)
   }, [])
+
+  const privatesRef = collection(db, 'privates')
+  const doctorsRef = collection(db, 'doctors')
+  const departmentsRef = collection(db, 'departments')
+
+  // useEffect(() => {
+  //   onSnapshot(privatesRef, snapshot => {
+  //     setPrivates(snapshot.docs.map(doc => {
+  //       return {
+  //         id: doc.id,         
+  //         ...doc.data()
+  //       }
+  //     }))
+  //   })
+  // },[])
 
   const RequireAuth = ({children}) => {
     return user && user ? (children) : <Navigate to="/login"/>
@@ -46,28 +115,43 @@ function App() {
           <Routes>          
             <Route exact path='/' element={
               <RequireAuth>
-                <Home/>
+                <Home privates={privates} doctors={doctors} departments={departments}/>
               </RequireAuth>
               }/>
             <Route path='/depart/:id' element={
               <RequireAuth>
-                <Department />
+                <Department privates={privates} doctors={doctors} departments={departments} messages={messages}/>
               </RequireAuth>              
               }/>
-              <Route path='/private/:id' element={
+              <Route path='/privates/:id' element={
               <RequireAuth>
-                <PrivateRoom/>
+                <PrivateRoom user={user} privates={privates}  doctors={doctors} departments={departments} messages={messages}/>
               </RequireAuth>              
               }/>
             <Route path='/doctors' element={
               <RequireAuth>
-                <Doctors user={user} />
+                <Doctors user={user} privates={privates} doctors={doctors} departments={departments}/>
+              </RequireAuth>            
+            }/>
+             <Route path='/register' element={
+              <RequireAuth>
+                <Register />
+              </RequireAuth>            
+            }/>
+            <Route path='/profile/:id' element={
+              <RequireAuth>
+                <Profile/>
+              </RequireAuth>
+            
+            }/>
+             <Route path='/account' element={
+              <RequireAuth>
+                <Account/>
               </RequireAuth>
             
             }/>
             <Route path='/login' element={<Login/>}/>
-            <Route path='/about' element={<About/>}/>
-            <Route path='/account' element={<Account/>}/>
+            <Route path='/about' element={<About/>}/>         
           </Routes>
         </BrowserRouter> 
       </ProfileContext.Provider>

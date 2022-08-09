@@ -2,25 +2,40 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { HiDotsVertical, HiOutlineArrowLeft, HiSearch } from "react-icons/hi";
 import Nav from '../../components/nav/Nav'
-import { departments, doctors } from '../../data'
+// import { departments, doctors } from '../../data'
 import './depart.css'
 import doc1 from '../../components/images/doc2.jpg'
 import { doc } from 'firebase/firestore';
 import { ProfileContext } from '../../components/hook/context/ProfileContext';
 import ViewDoctor from '../../components/viewDoctor/ViewDoctor';
 import ChatRoom from '../chatroom/ChatRoom';
+import InviteDoc from '../../components/invitedoc/InviteDoc';
+import useFetch from '../../components/hook/useFetch';
+import { useAuth } from '../../config';
+import useData from '../../components/hook/useData';
 
 
 
 
 
-const Department = ({}) => {
+
+const Department = () => {
+
+    const {user } = useAuth()
     const { id } = useParams()
     const navigate = useNavigate()
-    const currentRoom = departments.find(d => d.id === id)
+
+    // const { data: doctors } = useFetch('http://localhost:8000/doctors')
+    // const { data: departments, isPending } = useFetch('http://localhost:8000/departments')
+
+    const { departments, doctors } = useData()
+    
+    const currentRoom = departments && departments.find(d => d.id === id)
+
+    
     // console.log('id', id)
 
-    const { viewDoctor, setViewDoctor } = useContext(ProfileContext)
+    // const { viewDoctor, setViewDoctor } = useContext(ProfileContext)
 
     // console.log("profile", viewDoctor)
 
@@ -28,13 +43,21 @@ const Department = ({}) => {
     const [page, setPage] = useState(1)
     const [doctor, setDoctor] = useState("")
 
+    // const mappedDoctors = doctors && doctors.map((doctor) => {
+    //     doctor.specializes = departments && departments.filter(name => doctor.specializes.some(a => a === name ));
+
+    //     return doctor
+    // })
+
+    // console.log('spec', mappedDoctors)
+
     const handlePage = (page) => {
         setPage(page);
         setInfo(null)
     }
 
-    const roomDocs = doctors.filter(d => d.groupId === id)
-    // console.log('doctors', roomDocs)
+    const roomDocs = doctors && doctors.filter(d => d.groupId === id)
+    console.log('doctors', doctors)
 
     const [scroll, setScroll] = useState(false);
     useEffect(() => {
@@ -43,7 +66,9 @@ const Department = ({}) => {
     });
     }, []);
 
-    const dr = doctors.find((d) => d.id === doctor)
+    const dr = doctors && doctors.find((d) => d.id === doctor)
+    const specialized = doctors && doctors.filter(d => d.specializes.includes(currentRoom && currentRoom.name))
+
     const RenderPage = () => {
         if(page === 1){
             return (
@@ -52,10 +77,10 @@ const Department = ({}) => {
                     <div className="depart-left" >
                         <button onClick={() => navigate('/')} className='btn'><HiOutlineArrowLeft/></button>
                         <div className= "depart-left-1" onClick={() => handlePage(2)}>
-                            <h3>{currentRoom.name}</h3> 
+                             <h3>{currentRoom && currentRoom.name}</h3> 
                             <div className="depart-team">
-                                {roomDocs && roomDocs.map(d => (
-                                    <small>{d.name}, </small>
+                                {specialized && specialized.map((d, index) => (
+                                    <small key={index}>{d.name}, </small>
                                 ))}
                             </div>
                         </div>
@@ -70,7 +95,7 @@ const Department = ({}) => {
                         </div>}
                     </div>
                 </div>
-                <ChatRoom currentRoom={currentRoom.name}/> 
+                <ChatRoom currentRoom={currentRoom && currentRoom.name}/> 
             </>
             )
         }else if(page === 2){
@@ -81,20 +106,19 @@ const Department = ({}) => {
                             <button onClick={() => setPage(1)} className='btn' style={{color:'black'}}><HiOutlineArrowLeft/></button>
                             <h1 className={scroll ? 'dept_head_scroll' : 'dept_head'}>{currentRoom.name}</h1>
                             <button className='btn' onClick={() => setInfo(!info)} style={{color:'black'}}><HiDotsVertical/></button>
-                        </div>
-                        {/* <h1 className='dept_head'>{currentRoom.name}</h1> */} 
-                        <h4>ABOUT</h4>
+                        </div>                 
+                        <h4>About {currentRoom.name} Dept.</h4>
                         <div className="depart-desc">                       
                             <p>{currentRoom.desc}</p>                        
                         </div>
                         <div className="depart-doctors">
-                            <h4>{roomDocs.length} Doctors</h4>
+                            <h4>{specialized && specialized.length} Doctors</h4>
                             <button className='btn'><HiSearch/></button>
                         </div>
                         <div className="doctors_container">                            
-                                {roomDocs && roomDocs.map(doc => (
+                                {specialized && specialized.map(doc => (
                                 <div className="doctor_card">
-                                    <div className="doc_details" key={doc.id} onClick={() => setViewDoctor(doc)}>
+                                    <div className="doc_details" key={doc.id} onClick={() => navigate(`/profile/${doc.id}`)}>
                                         <div className="doc_photo">
                                             <img className='img' src={doc1} alt="" />
                                         </div>
@@ -122,23 +146,14 @@ const Department = ({}) => {
                     
                         </div>
                     </div>
-                    {doctor &&
-                        <button 
-                            className='btn_docs' 
-                            // onClick={() => handlePage(3)}
-                            >Invite {dr && dr.name} for Consultation
-                            <div className="btns_actions">
-                                <button onClick={() => navigate(`/private/${doctor}`)}>OK</button>
-                                <button onClick={() => setDoctor("")}>Cancel</button>
-                            </div>
-                        </button>
-                    }
+                    {/* {doctor &&
+                         <InviteDoc setDoctor={setDoctor} dr={dr} doctor={doctor}/>
+                    } */}
                 </div>
             )
         }else if(page === 3){
             return (
-                <div className='depart-info-container'>
-                   
+                <div className='depart-info-container'>                   
                     <div className="info_container_top">
                         <button onClick={() => setPage(1)} className='btn' style={{color:'black'}}><HiOutlineArrowLeft/></button>
                         <button className='btn' onClick={() => setInfo(!info)} style={{color:'black'}}><HiDotsVertical/></button>
@@ -177,9 +192,9 @@ const Department = ({}) => {
     }
   return (
     <div className='depart-container'>
-         {viewDoctor && 
+         {/* {viewDoctor && 
             <ViewDoctor />
-        }
+        } */}
         {/* <Nav/> */}
       
         {RenderPage()}

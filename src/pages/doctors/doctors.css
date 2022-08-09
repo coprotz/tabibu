@@ -3,13 +3,14 @@
     height: 100vh;
     width: 100vw;
     color: white;
+    padding: 15px;
 }
 
 .doctors_top{
     position: sticky;
     height: 10vh;
     top: 0;
-    background-color: #0433b3;
+    /* background-color: #0433b3; */
     padding: 2vh;
     display: flex;
     align-items: flex-start;
@@ -22,9 +23,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    min-height: 90vh;
+    height: auto;
     overflow-y: scroll;
-    background-color: #0d42d5;
+    /* background-color: #0d42d5; */
 }
 
 .doctor_card{
@@ -47,3 +48,235 @@
     border: 5px solid white;
     background-color: #0433b3;
 }
+
+.view_doc_outer{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.view_doc_container{
+    width: 100vw;
+    max-height: 100vh;
+    overflow-y: scroll;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #0d42d5;
+}
+
+.profile_menu_wrapper{
+    background-color: #0433b3;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    min-height: 43vh;
+    height: 100%;
+
+}
+
+.profile_photo{
+    display: flex;
+    flex-direction: column;
+    /* gap: 5px; */
+}
+
+.profile_photo h1{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.doctor_feedback{
+    display: flex;
+    /* justify-content: center; */
+    gap: 7px;
+    /* align-items: center; */
+    border: 1px solid #aaa;
+    border-bottom: none;
+    justify-content: center;
+}
+
+.btn_appoint{
+    background-color: #0d42d5;
+    border: none;
+    font-size: 1.2rem;
+    padding: 11px;
+    display: flex;
+    gap: 5px;
+    color: white;
+    align-items: center;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.doctor_patients button{
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #aaa;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor_patients{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #aaa;
+    padding: 5px;
+    width: 50%;
+}
+
+.doctor_star{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    padding: 5px;
+    width: 50%;
+}
+
+.profile_photo_img{
+    width: 100vw;
+    /* max-width: fit-content; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.profile_photo_img img{
+    width: 200px;
+    border-radius: 50% !important;
+}
+.view_doc_left{
+    display: flex;
+    /* border: 1px solid red; */
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+
+
+.btn_cons{
+    position: absolute;
+    bottom: 15px;
+    right: 15px ;
+    padding: 15px 18px;
+    background: #052786b7;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    font-size: 2.5vh;
+}
+
+.btn_close{
+    border: none;
+    background-color: transparent;
+    font-size: 17px;
+}
+
+
+
+.doc_view_top{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #aaaaaa;
+    background-color: white;
+}
+
+.doc_view_body{
+    background-color: white; 
+}
+
+
+
+.profile_inner_group{
+    background-color: #0d42d5;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: white;
+    
+}
+
+.profile_inner_group label{
+    font-size: 17px;
+    color: rgb(54, 210, 30) !important;
+}
+
+.profile_inner_group h2{
+    color: white;
+}
+
+.doc_specs{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 130px); 
+    width: 100%;
+}
+
+.doc_specs span{
+    padding: 5px 15px;
+    border-radius: 15px;
+    background-color: #052886;
+    margin: 5px;
+    width: fit-content;
+}
+
+.profile_menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2px;
+}
+
+.pro_menu_item{
+    padding: 5px;
+    border: 1px solid white;
+    color: white;
+    font-size: 4.2vw;
+
+}
+.active_pro{
+    padding: 5px;
+    border: 1px solid white;
+    color: #0433b3;
+    font-size: 4.2vw;
+    background-color: white;
+}
+
+.profile_info1{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profile_detail_item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #052886;
+    padding: 0.61vh 2vw;
+}
+
+.profile_detail_item h3{
+    color: #ced6ed;
+}
+
+.profile_detail_item span{
+    color: rgb(54, 210, 30) !important;
+
+}
+

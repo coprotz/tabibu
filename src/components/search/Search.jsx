@@ -8,7 +8,7 @@ const Search = ({ setSearchTerm }) => {
             <button><HiOutlineSearch/></button>
             <input 
                 type="text" 
-                placeholder='Find a Doctor'
+                placeholder='Type Doctor name to search'
                 onChange={(e) => setSearchTerm(e.target.value)} 
                 />
         </div>

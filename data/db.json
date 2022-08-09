@@ -1,0 +1,519 @@
+{
+  "doctors": [
+    {
+      "id": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "name": "Dr. Masolwa",
+      "edu": "Msc. Medicine",
+      "age": "42",
+      "hospital": "Agha Khan",
+      "sex": "M",
+      "groupId": "3",
+      "isOnline": true,
+      "region": "Dar es Salaam",
+      "photo": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "languages": [
+        "English",
+        "Swahili",
+        "French"
+      ],
+      "isApproved": true,
+      "lastSeen": "2 weeks ago",
+      "specializes": [
+        "Cardiology",
+        "Physiotherapy",
+        "eye",
+        "Nose and Throuts",
+        "Psychiatry"
+      ],
+      "rate": "98%"
+    },
+    {
+      "id": "2",
+      "name": "Dr. Michael",
+      "edu": "Msc. Medicine",
+      "age": "42",
+      "hospital": "Agha Khan",
+      "sex": "M",
+      "groupId": "3",
+      "isOnline": true,
+      "region": "Dar es Salaam",
+      "photo": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "languages": [
+        "English",
+        "Swahili",
+        "French"
+      ],
+      "isApproved": true,
+      "lastSeen": "2 weeks ago",
+      "specializes": [
+        "Physiotherapy",
+        "eye",
+        "Obstetrics"
+      ],
+      "rate": "98%"
+    },
+    {
+      "id": "3ddffrgtthhyuj",
+      "name": "Dr. Said",
+      "edu": "Msc. Medicine",
+      "age": "42",
+      "hospital": "Agha Khan",
+      "sex": "M",
+      "groupId": "3",
+      "isOnline": false,
+      "region": "Dar es Salaam",
+      "photo": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "languages": [
+        "English",
+        "Swahili",
+        "French"
+      ],
+      "isApproved": true,
+      "lastSeen": "2 weeks ago",
+      "specializes": [
+        "eye"
+      ],
+      "rate": "98%"
+    },
+    {
+      "id": "4",
+      "name": "Dr. Mombasa",
+      "edu": "Msc. Medicine",
+      "age": "42",
+      "hospital": "Agha Khan",
+      "sex": "M",
+      "groupId": "3",
+      "isOnline": false,
+      "region": "Dar es Salaam",
+      "photo": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "languages": [
+        "English",
+        "Swahili",
+        "French"
+      ],
+      "isApproved": true,
+      "lastSeen": "2 weeks ago",
+      "specializes": [
+        "Cardiology",
+        "Physiotherapy",
+        "Gynaecology"
+      ],
+      "rate": "98%"
+    },
+    {
+      "id": "5kkujjygyyhuj",
+      "name": "Dr. Masud",
+      "edu": "Msc. Medicine",
+      "age": "42",
+      "hospital": "Agha Khan",
+      "sex": "M",
+      "groupId": "3",
+      "isOnline": false,
+      "region": "Dar es Salaam",
+      "photo": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "languages": [
+        "English",
+        "Swahili",
+        "French"
+      ],
+      "isApproved": true,
+      "lastSeen": "2 weeks ago",
+      "specializes": [
+        "Cardiology",
+        "Physiotherapy",
+        "Obstetrics",
+        "eye"
+      ],
+      "rate": "98%"
+    },
+    {
+      "id": "6",
+      "name": "Dr. Monica",
+      "edu": "Msc. Medicine",
+      "age": "42",
+      "hospital": "Agha Khan",
+      "sex": "M",
+      "groupId": "3",
+      "isOnline": false,
+      "region": "Dar es Salaam",
+      "photo": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "languages": [
+        "English",
+        "Swahili",
+        "French"
+      ],
+      "isApproved": true,
+      "lastSeen": "2 weeks ago",
+      "specializes": [
+        "Cardiology",
+        "eye",
+        "General"
+      ],
+      "rate": "98%"
+    }
+  ],
+  "departments": [
+    {
+      "id": "1",
+      "name": "General",
+      "desc": "The database on firebase still registers people as it would in a Global chat, not a 1 on 1 chat. I am just completely confused on how to make sure the chat would be between only two people. If someone could recommend a guide, give a full fledged explanation on how 1v1 chat would work that would be appreci"
+    },
+    {
+      "id": "2",
+      "name": "Gynaecology",
+      "desc": "The database on firebase still registers people as it would in a Global chat, not a 1 on 1 chat. I am just completely confused on how to make sure the chat would be between only two people. If someone could recommend a guide, give a full fledged explanation on how 1v1 chat would work that would be appreci"
+    },
+    {
+      "id": "3",
+      "name": "Obstetrics",
+      "desc": "The database on firebase still registers people as it would in a Global chat, not a 1 on 1 chat. I am just completely confused on how to make sure the chat would be between only two people. If someone could recommend a guide, give a full fledged explanation on how 1v1 chat would work that would be appreci"
+    },
+    {
+      "id": "4",
+      "name": "Dental",
+      "desc": "The database on firebase still registers people as it would in a Global chat, not a 1 on 1 chat. I am just completely confused on how to make sure the chat would be between only two people. If someone could recommend a guide, give a full fledged explanation on how 1v1 chat would work that would be appreci"
+    },
+    {
+      "id": "5",
+      "name": "Psychiatry",
+      "desc": "The database on firebase still registers people as it would in a Global chat, not a 1 on 1 chat. I am just completely confused on how to make sure the chat would be between only two people. If someone could recommend a guide, give a full fledged explanation on how 1v1 chat would work that would be appreci"
+    },
+    {
+      "id": "6",
+      "name": "Skin",
+      "desc": "The database on firebase still registers people as it would in a Global chat, not a 1 on 1 chat. I am just completely confused on how to make sure the chat would be between only two people. If someone could recommend a guide, give a full fledged explanation on how 1v1 chat would work that would be appreci"
+    },
+    {
+      "id": "7",
+      "name": "Nose and Throuts",
+      "desc": "The database on firebase still registers people as it would in a Global chat, not a 1 on 1 chat. I am just completely confused on how to make sure the chat would be between only two people. If someone could recommend a guide, give a full fledged explanation on how 1v1 chat would work that would be appreci"
+    },
+    {
+      "id": "8",
+      "name": "Cardiology",
+      "desc": "The database on firebase still registers people as it would in a Global chat, not a 1 on 1 chat. I am just completely confused on how to make sure the chat would be between only two people. If someone could recommend a guide, give a full fledged explanation on how 1v1 chat would work that would be appreci"
+    },
+    {
+      "id": "9",
+      "name": "Medicine",
+      "desc": "The database on firebase still registers people as it would in a Global chat, not a 1 on 1 chat. I am just completely confused on how to make sure the chat would be between only two people. If someone could recommend a guide, give a full fledged explanation on how 1v1 chat would work that would be appreci"
+    },
+    {
+      "id": "10",
+      "name": "Paediatrics",
+      "desc": "The database on firebase still registers people as it would in a Global chat, not a 1 on 1 chat. I am just completely confused on how to make sure the chat would be between only two people. If someone could recommend a guide, give a full fledged explanation on how 1v1 chat would work that would be appreci"
+    }
+  ],
+  "privates": [
+    {
+      "id": "1",
+      "members": [
+        "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+        "hdhdjfhfjf"
+      ]
+    },
+    {
+      "id": "2",
+      "members": [
+        "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+        "hdhdtggfhfjf"
+      ]
+    },
+    {
+      "id": "3",
+      "members": [
+        "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+        "hdhdyyyufjf"
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "id": "1",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": "July 11, 2022",
+      "text": "I think you can help me",
+      "room": "1",
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "displayName": "Ally Mbaya"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659820916996,
+      "text": "hey",
+      "room": "1",
+      "displayName": "Ally Mbaya",
+      "id": "3Hspr77"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659820922082,
+      "text": "hey",
+      "room": "1",
+      "displayName": "Ally Mbaya",
+      "id": "PSgRiKq"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659820945445,
+      "text": "hey",
+      "room": "1",
+      "displayName": "Ally Mbaya",
+      "id": "0B0Xl6i"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659820947440,
+      "text": "hey",
+      "room": "1",
+      "displayName": "Ally Mbaya",
+      "id": "hJMTimL"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659820989738,
+      "text": "Hapo je",
+      "room": "Psychiatry",
+      "displayName": "Ally Mbaya",
+      "id": "I8sDhsp"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659820994480,
+      "text": "Hapo je",
+      "room": "Psychiatry",
+      "displayName": "Ally Mbaya",
+      "id": "MeM9ARa"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659821108075,
+      "text": "zinaenda kwani?",
+      "room": "Gynaecology",
+      "displayName": "Ally Mbaya",
+      "id": "90Ygit3"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659821153960,
+      "text": "zinaenda aisee, ila zinachelewa kidogo",
+      "room": "Gynaecology",
+      "displayName": "Ally Mbaya",
+      "id": "S9AhOK7"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659821196530,
+      "text": "sio mbaya sana",
+      "room": "1",
+      "displayName": "Ally Mbaya",
+      "id": "vA9HkSF"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659853478074,
+      "text": "saidia",
+      "room": "1",
+      "displayName": "Ally Mbaya",
+      "id": "U75eWLH"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659853516945,
+      "text": "ffff",
+      "room": "Psychiatry",
+      "displayName": "Ally Mbaya",
+      "id": "dsyFgpE"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659853519290,
+      "text": "ffff",
+      "room": "Psychiatry",
+      "displayName": "Ally Mbaya",
+      "id": "ov9UioT"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659853519967,
+      "text": "ffff",
+      "room": "Psychiatry",
+      "displayName": "Ally Mbaya",
+      "id": "Mb2aYZ_"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659853520625,
+      "text": "ffff",
+      "room": "Psychiatry",
+      "displayName": "Ally Mbaya",
+      "id": "i8FLOQM"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659853521474,
+      "text": "ffff",
+      "room": "Psychiatry",
+      "displayName": "Ally Mbaya",
+      "id": "lVYOGMP"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659853521994,
+      "text": "ffff",
+      "room": "Psychiatry",
+      "displayName": "Ally Mbaya",
+      "id": "P3oslam"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659853522242,
+      "text": "ffff",
+      "room": "Psychiatry",
+      "displayName": "Ally Mbaya",
+      "id": "WqPK2rc"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659853522264,
+      "text": "ffff",
+      "room": "Psychiatry",
+      "displayName": "Ally Mbaya",
+      "id": "5Snuksb"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659860259868,
+      "text": "saidia",
+      "room": "1",
+      "displayName": "Ally Mbaya",
+      "id": "wWV9NUH"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659860276393,
+      "text": "msaada unahitajika hapa",
+      "room": "1",
+      "displayName": "Ally Mbaya",
+      "id": "Brdbv6Q"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659860306653,
+      "text": "mambo sio mambo kabisa",
+      "room": "1",
+      "displayName": "Ally Mbaya",
+      "id": "CwlmZ9F"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659860335395,
+      "text": "Dr masolwa kama upo live, naombe uje chemba",
+      "room": "Nose and Throuts",
+      "displayName": "Ally Mbaya",
+      "id": "cdyzCo4"
+    },
+    {
+      "uid": "tPwGIMSaDKe4QTXm5mxuPf91SkC2",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c",
+      "createdAt": 1659860368697,
+      "text": "Dr monica njoo chemba tafadhari",
+      "room": "General",
+      "displayName": "Ally Mbaya",
+      "id": "yFhyFV5"
+    },
+    {
+      "uid": "mfBPyfxY14ST4D8yQl3GESCKTJA3",
+      "photoURL": "https://lh3.googleusercontent.com/a-/AFdZucpbj_b5tIgY8JCl0LjiNgbE9O4nRNiz4P9OzYJU=s96-c",
+      "createdAt": 1659887036946,
+      "text": "haloo",
+      "room": "Eye",
+      "displayName": "Ally Ally",
+      "id": "y1abxIs"
+    }
+  ],
+  "patients": [
+    {
+      "id": "hdhdjfhfjf",
+      "isSubsribed": true,
+      "name": "Juma Rashid",
+      "period": "30 days",
+      "height": "150m",
+      "weight": "85kg",
+      "region": "Dar es Salaam",
+      "district": "Ubungo",
+      "age": "32",
+      "sex": "M",
+      "isOnline": true,
+      "expire": "July 12,2022",
+      "amount": "15000"
+    },
+    {
+      "id": "hdhdtggfhfjf",
+      "isSubsribed": true,
+      "name": "Musa Abdul",
+      "period": "30 days",
+      "height": "150m",
+      "weight": "45kg",
+      "age": "32",
+      "isOnline": true,
+      "region": "Dar es Salaam",
+      "district": "Temeke",
+      "sex": "M",
+      "expire": "July 12,2022",
+      "amount": "15000"
+    },
+    {
+      "id": "hdhdwwwhfjf",
+      "isSubsribed": true,
+      "period": "30 days",
+      "name": "Saida Juma",
+      "height": "150m",
+      "weight": "35kg",
+      "isOnline": false,
+      "region": "Dar es Salaam",
+      "district": "Ilala",
+      "age": "22",
+      "sex": "F",
+      "expire": "July 12,2022",
+      "amount": "15000"
+    },
+    {
+      "id": "hdhdyyyufjf",
+      "isSubsribed": true,
+      "period": "30 days",
+      "name": "Asha Salum",
+      "height": "150m",
+      "weight": "45kg",
+      "isOnline": false,
+      "region": "Tanga",
+      "district": "Muheza",
+      "age": "25",
+      "sex": "F",
+      "expire": "July 12,2022",
+      "amount": "15000"
+    }
+  ]
+}

@@ -140,6 +140,7 @@ export const doctors = [
         hospital: 'Agha Khan', 
         sex: 'M', 
         groupId:'3',
+        isOnline: false,
         region: 'Dar es Salaam', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
         languages: ['English, Swahili', 'French'],
@@ -156,6 +157,7 @@ export const doctors = [
         hospital: 'Barru Hopsital', 
         sex: 'M', 
         groupId:'7',
+        isOnline: true,
         region: 'Zanzibar', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
         languages: ['English, Swahili', 'French'],
@@ -172,6 +174,7 @@ export const doctors = [
         hospital: 'SMV',
         groupId:'1', 
         sex: 'M', 
+        isOnline: false,
         region: 'Dar es Salaam', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
         languages: ['English, Swahili', 'French'],
@@ -187,6 +190,7 @@ export const doctors = [
         age: '42', 
         hospital: 'Amana Hopsital',
         groupId:'4', 
+        isOnline: true,
         sex: 'M', 
         region: 'Dar es Salaam', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
@@ -204,6 +208,7 @@ export const doctors = [
         hospital: 'Mbeya Referal', 
         sex: 'M', 
         groupId:'5',
+        isOnline: false,
         region: 'Mbeya', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
         languages: ['English, Swahili', 'French'],
@@ -219,6 +224,7 @@ export const doctors = [
         age: '42', 
         hospital: 'IMTU', 
         sex: 'M', 
+        isOnline: true,
         groupId:'5',
         region: 'Tabora', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
@@ -236,6 +242,7 @@ export const doctors = [
         hospital: 'Regency', 
         sex: 'M', 
         groupId:'5',
+        isOnline: false,
         region: 'Dar es Salaam', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
         languages: [' Swahili', 'French'],
@@ -252,6 +259,7 @@ export const doctors = [
         hospital: 'Tanga Hospital', 
         sex: 'M', 
         region: 'Tanga',
+        isOnline: true,
         groupId:'5',
         groupId:'3', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
@@ -268,6 +276,7 @@ export const doctors = [
         age: '38', 
         hospital: 'KCMC', 
         sex: 'M', 
+        isOnline: true,
         groupId:'2',
         region: 'Moshi', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
@@ -285,6 +294,7 @@ export const doctors = [
         hospital: 'Ilala Hospital', 
         sex: 'M', 
         groupId:'5',
+        isOnline: false,
         region: 'Tanga', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
         languages: ['English, Arabic', 'French'],
@@ -300,6 +310,7 @@ export const doctors = [
         groupId:'5',
         age: '25', 
         hospital: 'Muhimbili', 
+        isOnline: true,
         sex: 'F', 
         region: 'Dar es Salaam', 
         photo: 'https://lh3.googleusercontent.com/a-/AFdZucqJIOfTN5v5-E8kdBDCUraA86UMsVKQnhpGm8ocNw=s96-c',
@@ -309,4 +320,8 @@ export const doctors = [
         specializes: ['Cardiology', 'Physiotherapy', 'eye'],
         rate: '98%'
     }
+]
+
+export const diseases = [
+    'Anemia', 'Asthma', 'Arthritis', 'Cancer', 'Gout', 'Diabetes', 'Emotional Disorder', 'Epilepsy Seizures', 'Fainting Spells', 'Gallstones','Heart Disease','Heart Attack', 'Rheumatic Fever', 'High Blood Pressure', 'Digestive Problems', 'Ulcerative Colitis', 'Ulcer Disease','Hepatitis', 'Kidney Disease', 'Liver Disease', 'Sleep Apnea', 'Use a C-PAP machine', 'Thyroid Problems', 'Tuberculosis', 'Venereal Disease', 'Neurological Disorders', 'Bleeding Disorders', 'Lung Disease', 'Emphysema'
 ]

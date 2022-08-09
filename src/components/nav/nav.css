@@ -9,6 +9,10 @@
     color: white;
     font-size: 15px;
 }
+
+.app-name{
+    font-size: 2.7;
+}
 nav{
     padding: 1.2vh;
     height: 70px;
@@ -17,7 +21,10 @@ nav{
     justify-content: space-between;
     align-items: center;
     background-color:#0d42d5 !important;
-    /* position: relative; */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
 }
 
 .btn-menu{
@@ -46,7 +53,7 @@ nav{
 }
 .app-nav-left{
     display: flex;
-    gap: 12px;
+    gap: 1.2vw;
 }
 
 .app_menu_outer{
@@ -70,7 +77,7 @@ nav{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* align-items: center; */
+
 }
 
 .app_menu_head{
@@ -97,9 +104,9 @@ nav{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    /* align-items: center; */
+ 
     width: 100%;
-    /* border: 1px solid red; */
+
 }
 
 .app_menu_list_item{
@@ -197,7 +204,7 @@ nav{
     color: black;
     font-size: 17px;
     width: 100%;
-    /* border: 1px solid red; */
+
     display: flex;
     justify-content: space-between;
     align-items: center;

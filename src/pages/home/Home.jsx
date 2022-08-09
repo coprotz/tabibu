@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { departments, doctors } from '../../data'
+import React, { useContext, useEffect, useRef, useState } from 'react'
+// import { doctors } from '../../data'
 import { HiOutlinePlus } from "react-icons/hi";
 import { Link, useNavigate } from 'react-router-dom';
 import './home.css'
@@ -12,6 +12,12 @@ import { ProfileContext } from '../../components/hook/context/ProfileContext';
 import Search from '../../components/search/Search';
 import logo from '../../components/images/chat3.png'
 import DoctorCard from '../../components/doctorcard/DoctorCard';
+import InviteDoc from '../../components/invitedoc/InviteDoc';
+import { useAuth } from '../../config';
+import SingleChat from '../chatroom/SingleChat';
+import useData from '../../components/hook/useData';
+import useFetch from '../../components/hook/useFetch';
+
 
 
 
@@ -19,13 +25,25 @@ import DoctorCard from '../../components/doctorcard/DoctorCard';
 
 const Home = () => {
 
+    // const { data: departments, isPending, Error } = useFetch('http://localhost:8000/departments');
+    // const { data: doctors } = useFetch('http://localhost:8000/doctors');
+    // const { data: privates } = useFetch('http://localhost:8000/privates');
+
+    const { departments, doctors, privates } = useData()
+
+    const { user } = useAuth()
+
+    console.log('user', user)
+
     const { viewDoctor, setViewDoctor } = useContext(ProfileContext)
     const navigate = useNavigate()
-    const [doctor, setDoctor] = useState("")
-    const dr = doctors.find((d) => d.id === doctor)
-
-    // console.log('doctor', viewDoctor)
+    const [doctor, setDoctor] = useState("")    
+ 
+    const isDoctor = doctors && doctors.find((d) => d.userId === user.uid)
+    const userPrivates = privates && privates.filter((p) => p.members.find(m => m.includes(user.uid)))
     const [searchTerm, setSearchTerm] = useState("")
+
+    console.log('isDr', isDoctor)
 
   return (
     <div className='home'>
@@ -50,33 +68,28 @@ const Home = () => {
                         }else if(val.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())){
                             return val
                         }
-                    }).map(doc => (
+                    }).map(doctor => (
                         <DoctorCard 
-                            doc={doc}
-                            setDoctor={setDoctor}
-                            setViewDoctor={setViewDoctor}
+                            // doc={doc}
+                            // setDoctor={setDoctor}
+                            // setViewDoctor={setViewDoctor}
                             doctor={doctor}
                         />
                     ))}
-                    {doctor &&
-                    <button 
-                        className='btn_docs'        
-                        >Invite {dr && dr.name} for Consultation
-                        <div className="btns_actions">
-                            <button onClick={() =>navigate(`/private/${doctor}`)}>OK</button>
-                            <button onClick={() => setDoctor("")}>Cancel</button>
-                        </div>
-                    </button>
-                    }
+                    {/* {doctor &&
+                   
+                    <InviteDoc setDoctor={setDoctor} dr={dr}/>
+                    } */}
                                 
                             
                 {/* </div> */}
              </div>}
            </div>
-             <div className="depts">
+            <div className="depts">
                 <h3 className='room-title'>Departments</h3>
+               
                 <div className="depts-container">
-                    {departments.map((item) => (
+                    {departments && departments.map((item) => (
                         <Link to={`/depart/${item.id}`} key={item.id} className='dept-item'>{item.name}</Link>
                     ))}
                 </div>
@@ -84,39 +97,14 @@ const Home = () => {
             <div className="private-chats">
                 <div className="private-chats-inner">
                     <h3 className='room-title'>Private Chats</h3>
-                    <button className='btn-clear' onClick={() => navigate('/doctors')}><HiOutlinePlus/></button>
+                    {!isDoctor &&
+                    <button className='btn-clear' onClick={() => navigate('/doctors')}><HiOutlinePlus/></button>}
                 </div>
                 <div className="pr-chats-wrapper">
-                    <div className="private-card">
-                        <div className="card-top">
-                           <div className="pr-card-photo">
-                                <img src={doc1}alt="" />
-                            </div>
-                            <small>Dr. Husna</small> 
-                        </div>
-                        <span style={{backgroundColor: '#00FF00'}}></span>
-                        
-                    </div>
-                    <div className="private-card">
-                        <div className="card-top">
-                           <div className="pr-card-photo">
-                                <img src={doc2}alt="" />
-                            </div>
-                            <small>Dr. Rose</small> 
-                        </div>
-                        <span style={{backgroundColor: '#00FF00'}}></span>
-                        
-                    </div>
-                    <div className="private-card">
-                        <div className="card-top">
-                           <div className="pr-card-photo">
-                                <img src={doc3}alt="" />
-                            </div>
-                            <small>Dr. Khalid</small> 
-                        </div>
-                        <span style={{backgroundColor: '#ABB2B9'}}></span>
-                        
-                    </div>
+                    {userPrivates && userPrivates.map((chat) => (
+                        <SingleChat chat={chat} doctors={doctors} activeChats={userPrivates} user={user}/>
+                    ))}                 
+               
                 </div>
                 
             </div>

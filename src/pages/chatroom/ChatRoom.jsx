@@ -1,21 +1,22 @@
-import { addDoc, serverTimestamp, collection, onSnapshot, query, orderBy, deleteDoc } from 'firebase/firestore';
-import React, { useEffect, useRef, useState } from 'react'
-import { auth, db } from '../../config';
+// import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
+import React from 'react'
+import { db, useAuth } from '../../config';
 import './chats.css'
 import MessageCard from '../../components/MessageCard';
 import SendForm from '../../components/sendForm/SendForm';
+// import useFetch from '../../components/hook/useFetch';
+import useData from '../../components/hook/useData';
 
 
 
 const ChatRoom = ({currentRoom}) => {
 
-    const { uid, photoURL, displayName } = auth.currentUser
-    const [loading, setLoding] = useState(null)    
-    const [message, setMessage] = useState('')
-    const [messages, setMessages] = useState([])
-    const messageRef = collection(db, 'messages')
-    const q = query(messageRef, orderBy("createdAt"));
+    // const { data: messages, isPending, Error } = useFetch('http://localhost:8000/messages');
+    // const { data: doctors } = useFetch('http://localhost:8000/doctors');
 
+    const { messages, doctors } = useData()
+    const { user } = useAuth()
+    const doctor = doctors && doctors.find(d => d.userId === user.uid)
     const scrollRef = React.useRef(null);
 
     React.useLayoutEffect(() => {
@@ -24,43 +25,7 @@ const ChatRoom = ({currentRoom}) => {
       }
     })
 
-
-    useEffect(() => {
-      onSnapshot(q, snapshot => {
-        setMessages(snapshot.docs.map(doc => {
-          return {
-            id: doc.id,
-            viewing: false,
-            ...doc.data()
-          }
-        }))
-      })
-    },[])
-
-
-    // const handleSubmit = async(e) => {
-    //     e.preventDefault()
-    //     setLoding(true)
-    //     const data = {
-    //             uid,
-    //             photoURL,
-    //             createdAt: serverTimestamp(),
-    //             text: message,
-    //             room: currentRoom,
-    //             displayName
-    //     }
-
-    //     try {
-    //         await addDoc(messageRef, data)
-    //         setLoding(null);
-    //         setMessage('');
-            
-    //     } catch (error) {
-    //         console.log(error.message)
-    //     }
-    //     scrollRef.current.scrollIntoView({ behavior: 'smooth' })
-      
-    // };
+    console.log('room', currentRoom)
 
   return (
     <div className='messages' >
@@ -69,32 +34,15 @@ const ChatRoom = ({currentRoom}) => {
                 <div className="ref_scroll" key={message.id} >
                      <MessageCard
                         message={message}
+                        doctor={doctor}
+                        currentRoom={currentRoom}
    
                     />
                 </div>
-            ))}          
-            {/* <span ref={scrollRef}>ALLY</span>         */}
+            ))}       
+      
         </div>
         <SendForm currentRoom={currentRoom}/>
-        {/* <div className="form_action">
-             <form onSubmit={handleSubmit} className='form_wrapper'>
-                <textarea 
-                    name=""
-                    value={message}
-                    placeholder="Enter Message"
-                    onChange={(e) =>setMessage(e.target.value)} 
-                    className='text_input'
-                    >
-                </textarea>
-                <button
-                    type='submit'
-                    disabled={!message}
-                    className="btn_send"
-                    >{loading ? 'Sending...' : 'Send'}</button>
-          </form>
-        </div> */}
-        
-     
     </div>
   )
 }

@@ -1,18 +1,24 @@
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+// import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react'
-import { auth, useAuth } from '../../config';
-import { HiOutlineGlobeAlt } from "react-icons/hi";
+import { useAuth } from '../../config';
+// import { HiOutlineGlobeAlt } from "react-icons/hi";
 import logo from '../../components/images/chat3.png'
 import './login.css'
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate, useParams } from 'react-router-dom'
 import Nav from '../../components/nav/Nav';
-import userEvent from '@testing-library/user-event';
+// import userEvent from '@testing-library/user-event';
+import useData from '../../components/hook/useData';
 
 const Login = () => {
 
+  const { doctors, patients } = useData()
+
   const { googleSignIn, user } = useAuth()
   const [err, setErr] = useState('')
+
+  const doctor = doctors && doctors.find((d) => d.userId === user && user.uid)
+  const patient = patients && patients.find((d) => d.userId === user && user.uid)
 
   const navigate = useNavigate()
 
@@ -21,8 +27,10 @@ const Login = () => {
 
         try {
           await googleSignIn()
-          if(user){
+          if(user && doctor || patient){
             navigate('/')
+          }else {
+            navigate('/register')
           }
           
         } catch (error) {

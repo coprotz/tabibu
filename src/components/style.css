@@ -64,11 +64,12 @@ nav{
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 90px);
     background-image: url('../components/images/dr.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    /* overflow-y: scroll; */
     
     
 }
@@ -96,7 +97,7 @@ nav{
 }
 
 .messages_wrapper{
-    height: 100%;
+    height: calc(100vh - 90px);
     overflow-y: scroll;
     display: flex;
     flex-direction: column;

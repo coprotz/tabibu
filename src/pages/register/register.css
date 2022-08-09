@@ -1,0 +1,167 @@
+.register_container{
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    background-color: rgb(234, 234, 234);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.register_nav{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.register_heading{
+    /* color: white; */
+    font-size: 3rem;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center;
+}
+
+.register_selection{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    /* border: 1px solid red;    */
+    
+}
+
+/* .register_label{
+   
+} */
+
+.register_selection label{
+    display: flex;
+    padding: 5px 8px;
+    background-color: rgb(223, 223, 223);
+    color: #333;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.register_selection input[type='radio']:checked + label{
+    background-color: #0d42d5;
+    color: white;
+}
+
+.handle_register{
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+} 
+
+.register_welcome{
+    transition: all 0.5s ease;
+}
+
+.btn_register{
+    background-color: black;
+    color: white;
+    padding: 1.4vh 3vw;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 0 auto;
+    border: none;
+    font-size: 1.2rem;
+    transition-delay: 0.5s;
+   
+}
+
+.register_top{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 2vh;
+}
+
+.btn_clear{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.1rem;
+}
+
+.patient_wrapper{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.fields_group{
+    background-color: white;
+    padding: 2.2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 9px;
+}
+
+.field_input{
+    padding: 0.8vh;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.field_label{
+    font-size: 1.2rem;
+}
+
+.allergies_group{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    min-width: 80vw;
+}
+
+.allergy_item{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 5px;
+    padding: 2px;
+}
+
+.btn_add{
+    width: fit-content;
+    padding: 7px 12px;
+    font-size: 17px;
+    border: none;
+    
+}
+
+.diseases{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.planing_group{
+    background-color: white;
+    padding: 15px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 7px;
+}
+
+.planing_group input[type='radio']:checked + label{
+    background-color: #0d42d5 !;
+    color: #0d42d5;
+}

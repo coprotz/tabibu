@@ -27,6 +27,16 @@ const SendForm = ({currentRoom}) => {
             displayName
     }
 
+    // fetch('http://localhost:8000/messages', {
+    //   method: 'POST',
+    //   headers: { "content-Type": "application/json" },
+    //   body: JSON.stringify(data)
+    // }).then(() => {
+    //   setMessage('')
+    //   setLoding(null)
+    //   console.log('new message posted')
+    // })
+
     try {
         await addDoc(messageRef, data)
         setLoding(null);
@@ -36,6 +46,8 @@ const SendForm = ({currentRoom}) => {
         console.log(error.message)
     }
     // scrollRef.current.scrollIntoView({ behavior: 'smooth' })
+
+    // console.log('data', data)
   
 };
   return (
