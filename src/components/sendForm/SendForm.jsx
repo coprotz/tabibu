@@ -4,12 +4,16 @@ import { HiOutlineEmojiHappy, HiOutlinePaperClip, HiOutlineCamera } from "react-
 import { MdOutlineSend } from "react-icons/md";
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { useAuth, db } from '../../config';
+import useData from '../hook/useData';
 
 
 
 const SendForm = ({currentRoom}) => {
   const { user } = useAuth()
+  const {doctors} = useData()
+  
   const { uid, photoURL, displayName } = user
+  const doctor = doctors && doctors.find(d => d.userId === uid)
   const [message, setMessage] = useState('')
   const [loading, setLoding] = useState(null)   
 
@@ -24,7 +28,7 @@ const SendForm = ({currentRoom}) => {
             createdAt: serverTimestamp(),
             text: message,
             room: currentRoom,
-            displayName
+            displayName: doctor ? doctor.name : displayName
     }
 
     // fetch('http://localhost:8000/messages', {

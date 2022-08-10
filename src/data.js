@@ -325,3 +325,10 @@ export const doctors = [
 export const diseases = [
     'Anemia', 'Asthma', 'Arthritis', 'Cancer', 'Gout', 'Diabetes', 'Emotional Disorder', 'Epilepsy Seizures', 'Fainting Spells', 'Gallstones','Heart Disease','Heart Attack', 'Rheumatic Fever', 'High Blood Pressure', 'Digestive Problems', 'Ulcerative Colitis', 'Ulcer Disease','Hepatitis', 'Kidney Disease', 'Liver Disease', 'Sleep Apnea', 'Use a C-PAP machine', 'Thyroid Problems', 'Tuberculosis', 'Venereal Disease', 'Neurological Disorders', 'Bleeding Disorders', 'Lung Disease', 'Emphysema'
 ]
+
+
+export const applicants = [
+    {id: '123456', name: 'Dr. James Wangira', phone: '+255767157057' },
+    {id: '111111', name: 'Dr. Kachwere M', phone: '+255767157057' },
+    {id: '222222', name: 'Dr. Mandonga M', phone: '+255767157057' },
+]

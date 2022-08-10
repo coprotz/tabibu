@@ -85,16 +85,9 @@ const Patient = () => {
     }
 
 
-
-
-    // const [values, setValues] = useState({
-
-    // })
   return (
-    <div className='register_wrapper'>       
-        {/* <div className="progress_bar">progress</div> */}
+    <div className='register_wrapper'>   
         {RenderPage()}      
-      
     </div>
   )
 }

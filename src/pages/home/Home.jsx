@@ -16,7 +16,10 @@ import InviteDoc from '../../components/invitedoc/InviteDoc';
 import { useAuth } from '../../config';
 import SingleChat from '../chatroom/SingleChat';
 import useData from '../../components/hook/useData';
-import useFetch from '../../components/hook/useFetch';
+// import useFetch from '../../components/hook/useFetch';
+import Spinner from '../../components/spinner/Spinner';
+import Register from '../register/Register';
+
 
 
 
@@ -29,7 +32,7 @@ const Home = () => {
     // const { data: doctors } = useFetch('http://localhost:8000/doctors');
     // const { data: privates } = useFetch('http://localhost:8000/privates');
 
-    const { departments, doctors, privates } = useData()
+    const { departments, doctors, privates, patients } = useData()
 
     const { user } = useAuth()
 
@@ -40,21 +43,30 @@ const Home = () => {
     const [doctor, setDoctor] = useState("")    
  
     const isDoctor = doctors && doctors.find((d) => d.userId === user.uid)
+    const isPatient = patients && patients.find((d) => d.userId === user.uid)
     const userPrivates = privates && privates.filter((p) => p.members.find(m => m.includes(user.uid)))
     const [searchTerm, setSearchTerm] = useState("")
+    const [loading, setLoading] = useState(true)
 
-    console.log('isDr', isDoctor)
+    // console.log('isDr', isDoctor)
+
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //       setLoading(false)
+    //     }, 3000)
+    //   }, [])
 
   return (
     <div className='home'>
-        {viewDoctor && 
-        <ViewDoctor />
-        }
+        {/* {loading && <Spinner/>}    */}
+        {isDoctor || isPatient ?
+        <> 
         <div className="home_left">
             <div className="home_logo">
                 <img src={logo} alt="" className='img'/>
             </div>
         </div>
+       
         <div className="home_container">            
            <Nav />
            <div className="search_box">
@@ -70,19 +82,11 @@ const Home = () => {
                         }
                     }).map(doctor => (
                         <DoctorCard 
-                            // doc={doc}
-                            // setDoctor={setDoctor}
-                            // setViewDoctor={setViewDoctor}
+                     
                             doctor={doctor}
                         />
-                    ))}
-                    {/* {doctor &&
-                   
-                    <InviteDoc setDoctor={setDoctor} dr={dr}/>
-                    } */}
-                                
-                            
-                {/* </div> */}
+                    ))}             
+     
              </div>}
            </div>
             <div className="depts">
@@ -110,6 +114,7 @@ const Home = () => {
             </div>
 
         </div>
+        </> : <Register/>}
       
     </div>
   )

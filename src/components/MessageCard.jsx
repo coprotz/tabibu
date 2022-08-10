@@ -10,7 +10,7 @@ const MessageCard = ({message, doctor, currentRoom}) => {
 
     const { user } = useAuth()
 
-    const { privates } = useData()
+    const { privates, doctors } = useData()
 
     const {  id, text, uid, createdAt, displayName, photoURL} = message;
 
@@ -20,6 +20,8 @@ const MessageCard = ({message, doctor, currentRoom}) => {
 
     const doctorRooms = privates && privates.filter((p) => p.members.find(m => m.includes(doctor && doctor.userId)))
     const isMember = doctorRooms && doctorRooms.find((p) => p.members.find(m => m.includes(uid)))
+
+    const dr = doctors && doctors.find((d) => d.userId === user.uid)
 
     console.log('isMember', isMember)
 
@@ -87,7 +89,7 @@ const MessageCard = ({message, doctor, currentRoom}) => {
             </div>
             <div className={`text ${bgClass}`}>
                 <div className="user-name" onClick={() => navigate(`/profile/${uid}`)}>
-                    <p >{displayName}</p>
+                    <p >{ displayName}</p>
                 </div>
                 <p>{text}</p>
                 <small className='message_time'>{createdAt && new Date(createdAt.seconds * 1000).toLocaleTimeString("en-US", options)}</small>

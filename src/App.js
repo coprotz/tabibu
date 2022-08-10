@@ -133,11 +133,11 @@ useEffect(() => {
                 <Doctors user={user} privates={privates} doctors={doctors} departments={departments}/>
               </RequireAuth>            
             }/>
-             <Route path='/register' element={
+             {/* <Route path='/register' element={
               <RequireAuth>
                 <Register />
               </RequireAuth>            
-            }/>
+            }/> */}
             <Route path='/profile/:id' element={
               <RequireAuth>
                 <Profile/>

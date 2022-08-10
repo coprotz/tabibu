@@ -55,16 +55,15 @@ const Nav = () => {
                     <div className="qr_code">
                       <img src={qr} alt="" className='img_code'/>
                     </div>
-                    <div className="app_menu_lists">
-                      {doctor && 
+                    <div className="app_menu_lists">                    
                       <div className="username_title" onClick={() => handleChange('/account')}>
                         <div className="username_photo">
                           {user? 
                           <img src={user.photoURL} alt="" className='img'/>:
                           <span className='user_icon'>{user.displayName[0]}</span>}
                         </div>
-                        <h4>{user.displayName}</h4>
-                      </div>}
+                        <h4>{doctor ? doctor.name : user.displayName}</h4>
+                      </div>
                       <span className='app_menu_list_item' onClick={() => handleChange('/')}>Home</span>
                       <span className='app_menu_list_item' onClick={() => handleChange('/about')}>About</span>
                       <span className='app_menu_list_item' onClick={() => handleChange('/pricing')}>Pricing</span>

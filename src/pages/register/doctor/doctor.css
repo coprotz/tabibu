@@ -1,0 +1,15 @@
+.welcome_title{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.error{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding: 15px;
+    color: red;
+    background-color: rgb(255, 214, 214);
+    text-align: center;
+}

@@ -27,11 +27,15 @@ const Login = () => {
 
         try {
           await googleSignIn()
-          if(user && doctor || patient){
-            navigate('/')
-          }else {
-            navigate('/register')
-          }
+          navigate('/')
+          // if(!doctor || !patient){
+            // setTimeout(() => {
+            //     navigate('/register')
+            // }, 5000)
+          
+          // }else if(doctor || patient) {
+            
+          // }
           
         } catch (error) {
           setErr(error.message)
