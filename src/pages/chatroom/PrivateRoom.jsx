@@ -34,8 +34,11 @@ const PrivateRoom = ({ user}) => {
 
   return (
     <div className='private_wrapper'>
-      <div className="private_comp_top">      
+      
+      <div className="private_comp_top">   
+           
         <div className="private_room_photo">
+       
           <button onClick={() => navigate(-1)} className='btn'><HiOutlineArrowLeft/></button>
        
           <div className='member_wrap' onClick={() => navigate(`/profile/${member && member.userId}`)}>

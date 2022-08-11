@@ -65,7 +65,7 @@ const Home = () => {
             <div className="home_logo">
                 <img src={logo} alt="" className='img'/>
             </div>
-        </div>
+        </div>      
        
         <div className="home_container">            
            <Nav />

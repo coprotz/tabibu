@@ -6,13 +6,13 @@ import useData from './hook/useData';
 
 
 
-const MessageCard = ({message, doctor, currentRoom}) => {
+const MessageCard = ({message, doctor, currentRoom, setDisplayImage}) => {
 
     const { user } = useAuth()
 
     const { privates, doctors } = useData()
 
-    const {  id, text, uid, createdAt, displayName, photoURL} = message;
+    const {  id, text, uid, createdAt, displayName, photoURL, caption} = message;
 
     const messageClass = uid === user.uid ? 'sent' : 'received';
     const bgClass = uid === user.uid ? 'blue' : 'grey';
@@ -29,19 +29,12 @@ const MessageCard = ({message, doctor, currentRoom}) => {
 
     const doctorRoom = doctor && doctor.specializes.includes(currentRoom)
 
-    // console.log('currentroom', currentRoom)
-    // console.log('doctoroom', doctorRoom)
-    // console.log('doctor', doctor)
-
-    // const isOwn = () => {
-    //   if(doctor.userId === user.uid){
-    //     return true
-    //   }
-    // }
-
     const isOwn = doctor && doctor.userId === uid
-
     console.log('isown', isOwn)
+
+    const isImage = message && message.msgType === 'image'
+
+    console.log('image', isImage)
 
     
 
@@ -91,7 +84,9 @@ const MessageCard = ({message, doctor, currentRoom}) => {
                 <div className="user-name" onClick={() => navigate(`/profile/${uid}`)}>
                     <p >{ displayName}</p>
                 </div>
-                <p>{text}</p>
+                {isImage? <img src={text} alt='' onClick={() => setDisplayImage(message)}/> :
+                <p>{text}</p>}
+                {caption && <>{caption}</>}
                 <small className='message_time'>{createdAt && new Date(createdAt.seconds * 1000).toLocaleTimeString("en-US", options)}</small>
             </div>
             <div
