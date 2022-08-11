@@ -6,7 +6,61 @@
     gap: 10px;
     padding: 5px;
     min-height: 50px;
+    position: relative;
     /* border: 1px solid red; */
+}
+
+.attach_wrapper{
+    position: absolute;
+    bottom: 50px;
+    width: 95%;
+    max-width: 450px;
+    height: auto;
+    background: white;
+    border-radius: 11px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border: 1px solid #aaa;
+
+}
+
+.attach_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn_attach{
+    height: 50px;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #aaa;
+    color: white;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 5px;
+}
+
+.attach_btns{
+    height: 50px;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #aaa;
+    color: white;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
 }
 
 .form_outer{
