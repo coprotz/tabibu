@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { getFunctions } from "firebase/functions"
 
 
 import { 
@@ -29,13 +30,13 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const storage = getStorage(app);
-const AuthContext = createContext()
+export const functions = getFunctions(app)
 
+const AuthContext = createContext()
 
 
 export function AuthProvider({ children }){
   const [user, setUser] = useState({})
-
   function googleSignIn(){
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider)

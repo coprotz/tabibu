@@ -13,6 +13,7 @@ import InviteDoc from '../../components/invitedoc/InviteDoc';
 import useFetch from '../../components/hook/useFetch';
 import { useAuth } from '../../config';
 import useData from '../../components/hook/useData';
+import DoctorCard from '../../components/doctorcard/DoctorCard';
 
 
 
@@ -116,31 +117,8 @@ const Department = () => {
                             <button className='btn'><HiSearch/></button>
                         </div>
                         <div className="doctors_container">                            
-                                {specialized && specialized.map(doc => (
-                                <div className="doctor_card">
-                                    <div className="doc_details" key={doc.id} onClick={() => navigate(`/profile/${doc.id}`)}>
-                                        <div className="doc_photo">
-                                            <img className='img' src={doc1} alt="" />
-                                        </div>
-                                        <div className="doc_name">
-                                            <span>{doc.name}</span>
-                                        </div>
-                                    </div>
-                                    <div className="doc_status">
-                                        <small>{doc.lastSeen}</small>
-                                    </div>
-                                    <label htmlFor={doc.id} className={doctor === doc.id ? 'doctor_selected ': 'doctor_label'}>
-                                        <input 
-                                        type="radio" 
-                                        name='doctor'
-                                        id={doc.id} 
-                                        style={{display: 'none'}}
-                                        value={doc.id}
-                                        className='invite_input' 
-                                        onChange={(e) => setDoctor(e.target.value)}                                        
-                                    />
-                                    </label>
-                                </div>  
+                                {specialized && specialized.map(doctor => (
+                                    <DoctorCard doctor={doctor}/>
                                 ))}
                         
                     

@@ -1,5 +1,5 @@
 .doctors_wrapper{
-    background-color: #0d42d5;
+    /* background-color: #0d42d5; */
     height: 100vh;
     width: 100vw;
     color: white;
@@ -67,11 +67,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #0d42d5;
+    /* background-color: #0d42d5; */
 }
 
 .profile_menu_wrapper{
-    background-color: #0433b3;
+    /* background-color: #0433b3; */
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -204,7 +204,7 @@
 
 
 .profile_inner_group{
-    background-color: #0d42d5;
+    /* background-color: #0d42d5; */
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -223,17 +223,18 @@
 
 .doc_specs{
     display: grid;
-    grid-template-columns: repeat(auto-fit, 130px); 
+    grid-template-columns: repeat(auto-fit, 1 fr); 
+    gap: 10px;
     width: 100%;
 }
 
-.doc_specs span{
+/* .doc_specs span{
     padding: 5px 15px;
     border-radius: 15px;
     background-color: #052886;
     margin: 5px;
     width: fit-content;
-}
+} */
 
 .profile_menu{
     display: flex;
@@ -247,6 +248,7 @@
     border: 1px solid white;
     color: white;
     font-size: 4.2vw;
+    background-color: #0433b3;
 
 }
 .active_pro{
@@ -260,23 +262,172 @@
 .profile_info1{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .profile_detail_item{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #052886;
-    padding: 0.61vh 2vw;
+    color: #052886;
+    padding: 1vh 2vw;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .profile_detail_item h3{
-    color: #ced6ed;
+    color: #8c8c8d;
 }
 
-.profile_detail_item span{
+/* .profile_detail_item span{
     color: rgb(54, 210, 30) !important;
 
+} */
+
+
+.reviews_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 7px;
+    background-color: white;
+    height:47vh ;
+    overflow-y: scroll;
 }
+
+.reviews_top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.review_stars{
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews_patients{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review_body_name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review_card{
+    display: flex;
+    gap: 5px;
+    padding: 11px;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.reviews_body{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_review{
+     padding: 10px;
+     font-size: 16px;
+     border: none;
+     font-weight: 700;
+     color: #555;
+     
+}
+
+.reviews_top h3{
+    color: #0433b3;
+    font-size: 1.3em;
+}
+
+.review_summary{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0 20vw;
+    align-items: center;
+}
+
+.review_summary h1{
+    color: #888;
+    font-size: 5.3rem;
+}
+
+.patient_reviews{
+    padding: 1.2vh 0;
+    color: #aaa;
+}
+
+.appointment_outer{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    padding: 10px;
+}
+
+.appointment_inner{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    background-color: white;
+    gap: 15px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+}
+
+.group_items{
+    background: rgb(225, 225, 225);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 15px;
+}
+
+.input_item{
+    padding: 9px;
+    font-size: 17px;
+}
+
+.btn_submit{
+    padding: 8px 15px;
+    background-color: black;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn_close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.msgAlert{
+    position: fixed;
+    top: 40px;
+    left: 100px;
+    z-index: 100;
+    border-left: 8px solid #0433b3;
+    padding: 15px;
+    background-color: white;
+    font-size: 18px;
+    color: #0433b3;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
 

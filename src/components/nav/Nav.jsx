@@ -14,7 +14,7 @@ const Nav = () => {
   const [menu, setMenu] = useState(null)
   const [viewNot, setViewNot] = useState(null) 
   
-  const { doctors, patients } = useData();
+  const { doctors, patients, notifications } = useData();
 
   const doctor = doctors && doctors.find((d) => d.userId === user && user.uid)
   const patient = patients && patients.find((d) => d.userId === user && user.uid)
@@ -35,11 +35,14 @@ const Nav = () => {
         <div className="app-nav-left">
           {user && 
             <div className="notific_app">
-              <span className='span_notific'>5</span>
+              <span className='span_notific'>{notifications && notifications.length}</span>
               <button className='btn_notific' onClick={() => setViewNot(true)}><MdNotificationsNone/></button>
-              {viewNot && 
-              <Notific  setViewNot={setViewNot}/>}
-            </div>}
+                {viewNot &&        
+                  <Notific  setViewNot={setViewNot} notifications={notifications}/>              
+                }
+ 
+            </div> 
+          }
             
             <button className='btn-lang'><HiOutlineGlobeAlt/> English</button>
             {user && <>           

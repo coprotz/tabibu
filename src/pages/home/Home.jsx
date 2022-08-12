@@ -81,8 +81,7 @@ const Home = () => {
                             return val
                         }
                     }).map(doctor => (
-                        <DoctorCard 
-                     
+                        <DoctorCard                      
                             doctor={doctor}
                         />
                     ))}             

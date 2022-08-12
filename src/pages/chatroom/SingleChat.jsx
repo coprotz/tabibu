@@ -29,13 +29,7 @@ const SingleChat = ({chat, activeChats, user}) => {
             </div>
             <small>{member && member.name}</small> 
         </div>
-        <span className={member && member.isOnline ? 'member_status': 'member_off'}></span> 
-        {/* <div className="member_action">
-          <button onClick={() => navigate(`/profile/${member && member.userId}`)}><BsEye/></button>
-          <button onClick={() => navigate(`/privates/${chat.id}`)}><BsChatLeftText/></button>
-          
-        </div> */}
-                                  
+        <span className={member && member.isOnline ? 'member_status': 'member_off'}></span>       
     </div>
   )
 }

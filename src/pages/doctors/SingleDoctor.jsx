@@ -7,17 +7,16 @@ import { BsChatText, BsCalendarPlus } from "react-icons/bs";
 import { db, useAuth } from '../../config';
 import { addDoc, collection } from 'firebase/firestore';
 import { ImSpinner5 } from "react-icons/im";
+import Reviews from './Reviews';
+import Appointment from './Appointment';
 // import useFetch from '../../components/hook/useFetch';
 
 
 const SingleDoctor = ({doctor}) => {
-
     const navigate = useNavigate()   
-
     const { privates } = useData()
-
     const { user } = useAuth()
-
+    
     // const doctorRooms = privates && privates.filter((p) => p.userId)
     const doctorRooms = privates && privates.filter((p) => p.members.find(m => m.includes(doctor.userId)))
     const isMember = doctorRooms && doctorRooms.find((p) => p.members.find(m => m.includes(user.uid)))
@@ -27,6 +26,7 @@ const SingleDoctor = ({doctor}) => {
     const privatesRef = collection(db, 'privates')
     const [err, setErr] = useState('')
     const [loading, setLoading] = useState(null)
+    const [msgAlert, setMsgAlert] = useState('')
 
     const data = {
         members: [`${doctor.userId}`, `${user.uid}`]
@@ -50,11 +50,11 @@ const SingleDoctor = ({doctor}) => {
     }
 
     const [page, setPage] = useState(1)
+    const [appointment, setAppointment] = useState(null)
 
     const RenderPage = () => {
         if(page === 1){
-            return (
-          
+            return (          
                    <div className="profile_info1">
                         <div className="profile_detail_item">
                             <h3>Hospital</h3>
@@ -91,10 +91,10 @@ const SingleDoctor = ({doctor}) => {
             return (
               
                 <div className="profile_inner_group">
-                    <label htmlFor="">SPECIALIZED</label>
+                    {/* <label htmlFor="">SPECIALIZED</label> */}
                     <div className="doc_specs">
                         {doctor && doctor.specializes.map((s,index) => (
-                            <span key={index}>{s} </span>
+                            <h3 key={index} className="profile_detail_item">{s} </h3>
                         ))}
                     </div>
                 </div>
@@ -104,31 +104,28 @@ const SingleDoctor = ({doctor}) => {
             return (
                
                 <div className="profile_inner_group">
-                    <label htmlFor="">LANGUAGES</label>
+                    {/* <label htmlFor="">LANGUAGES</label> */}
                     <div className="doc_specs">
                         {doctor && doctor.languages.map((l,index) => (
-                            <span key={index}>{l}</span>
+                            <h3 key={index} className="profile_detail_item">{l}</h3>
                         ))}
                     </div>
                 </div>
           
             )
         }else if(page === 4){
-            return (
-                
-                <div className="profile_inner_group">
-                    <label htmlFor="">RATE OF RESPONSE</label>
-                    <div className="doc_specs">
-                        <span>{doctor && doctor.rate}</span>
-                    </div>
-                </div>
-            
+            return (                
+               <Reviews/>            
             )
         }
     }
 
   return (
-    <div className='view_doc_outer'>     
+    <div className='view_doc_outer'> 
+        {appointment &&
+            <Appointment doctor={doctor} setAppointment={setAppointment} msgAlert={msgAlert} setMsgAlert={setMsgAlert}/>  
+        }  
+        {msgAlert && <div className='msgAlert'>{msgAlert}</div>}
         <div className="view_doc_container">
             <div className="doc_view_top">
                 <div className="view_doc_left">
@@ -164,7 +161,7 @@ const SingleDoctor = ({doctor}) => {
                         </div>}
                         {isMember &&
                         <div className="doctor_star">
-                            <button className='btn_appoint'><BsCalendarPlus/>Appointment</button>
+                            <button className='btn_appoint' onClick={() => setAppointment(true)}><BsCalendarPlus/>Appointment</button>
                            
                         </div>}
                     </div>          
@@ -176,10 +173,13 @@ const SingleDoctor = ({doctor}) => {
                     <span className={page === 1 ? 'active_pro': 'pro_menu_item'} onClick={() => setPage(1)}>PROFILE</span>
                     <span className={page === 2 ? 'active_pro': 'pro_menu_item'} onClick={() => setPage(2)}>SPECIALIZES</span>
                     <span className={page === 3 ? 'active_pro': 'pro_menu_item'} onClick={() => setPage(3)}>LANGUAGES</span>
-                    <span className={page === 4 ? 'active_pro': 'pro_menu_item'} onClick={() => setPage(4)}>FEEDBACKS</span>
+                    <span className={page === 4 ? 'active_pro': 'pro_menu_item'} onClick={() => setPage(4)}>REVIEWS</span>
                 </div>                 
                 <div className="profile_inner">
-                    {RenderPage()}    
+                    <div className='reviews_wrapper'>
+                        {RenderPage()}  
+                    </div>
+                      
                 </div> 
             </div>        
                       

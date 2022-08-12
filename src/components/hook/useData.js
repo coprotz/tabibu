@@ -16,6 +16,8 @@ const useData = () => {
  const doctorsRef = collection(db, 'doctors')
  const [messages, setMessages] = useState([])
  const messagesRef = collection(db, 'messages')
+ const [notifications, setNotifications] = useState([])
+ const notificationsRef = collection(db, 'notifications')
 
 //  console.log('departs', departments)
 //  console.log('patients', patients)
@@ -26,6 +28,16 @@ const useData = () => {
  useEffect(() => {
     onSnapshot(departsRef, snapshot => {
         setDepartments(snapshot.docs.map(doc => {
+            return {
+                id: doc.id,
+                ...doc.data()
+            }
+        }))
+    })
+ },[])
+ useEffect(() => {
+    onSnapshot(notificationsRef, snapshot => {
+        setNotifications(snapshot.docs.map(doc => {
             return {
                 id: doc.id,
                 ...doc.data()
@@ -80,7 +92,7 @@ const useData = () => {
     })
  },[])
 
- return { departments, patients, privates, messages, doctors }
+ return { departments, patients, privates, messages, doctors, notifications }
 
 }
 

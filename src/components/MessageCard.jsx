@@ -3,40 +3,30 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { auth, db, useAuth } from '../config';
 import useData from './hook/useData';
+// import { motion } from 'framer-motion'
 
 
 
 const MessageCard = ({message, doctor, currentRoom, setDisplayImage}) => {
 
     const { user } = useAuth()
-
     const { privates, doctors } = useData()
-
     const {  id, text, uid, createdAt, displayName, photoURL, caption} = message;
-
     const messageClass = uid === user.uid ? 'sent' : 'received';
     const bgClass = uid === user.uid ? 'blue' : 'grey';
     const [showActionButtons, setShowActionsButtons] = useState(false);
-
     const doctorRooms = privates && privates.filter((p) => p.members.find(m => m.includes(doctor && doctor.userId)))
     const isMember = doctorRooms && doctorRooms.find((p) => p.members.find(m => m.includes(uid)))
+    // const dr = doctors && doctors.find((d) => d.userId === user.uid)
 
-    const dr = doctors && doctors.find((d) => d.userId === user.uid)
-
-    console.log('isMember', isMember)
+    // console.log('isMember', isMember)
 
     const [err, setErr] = useState('')
-
     const doctorRoom = doctor && doctor.specializes.includes(currentRoom)
-
     const isOwn = doctor && doctor.userId === uid
-    console.log('isown', isOwn)
-
+    // console.log('isown', isOwn)
     const isImage = message && message.msgType === 'image'
-
-    console.log('image', isImage)
-
-    
+    // console.log('image', isImage)    
 
     const toggleCard = () => {
         setShowActionsButtons(!showActionButtons)
@@ -45,10 +35,8 @@ const MessageCard = ({message, doctor, currentRoom, setDisplayImage}) => {
     const privateRef = collection(db, 'privates')
 
     const navigate = useNavigate()
-
     const handlePrivate = async (e) => {
         e.preventDefault()
-
         const data = {
             members: [`${user.uid}`, `${uid}`]
           }
@@ -73,10 +61,20 @@ const MessageCard = ({message, doctor, currentRoom, setDisplayImage}) => {
       }
 
     const options = { weekday: 'short', month: 'short', day: 'numeric' };
+
+    const variants = {
+      visible: i => ({
+        opacity: 1,
+        transition: {
+          delay: i * 0.3,
+        },
+      }),
+      hidden: { opacity: 0 },
+    }
+
   return (
     <div className={`message ${messageClass}`}>
-        <div className={`contents ${messageClass}`} onClick={toggleCard}>
-            
+        <div className={`contents ${messageClass}`} onClick={toggleCard}>           
             <div className="photo">
                 <img src={photoURL} alt="" />
             </div>
