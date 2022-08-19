@@ -39,7 +39,7 @@ const Home = () => {
 
     const uid = user && user.uid
 
-    console.log('user', user)
+    // console.log('user', user)
 
     // const { viewDoctor, setViewDoctor } = useContext(ProfileContext)
     const navigate = useNavigate()
@@ -47,7 +47,7 @@ const Home = () => {
  
     const doctor = doctors && doctors.find((d) => d.userId ===  uid)
     const patient = patients && patients.find((d) => d.userId ===  uid)
-    const userPrivates = privates && privates.filter((p) => p.members.find(m => m.includes(user.uid)))
+    const userPrivates = privates && privates.filter((p) => p.members.find(m => m.includes(uid)))
     const [searchTerm, setSearchTerm] = useState("")
     const [loading, setLoading] = useState(true)
 

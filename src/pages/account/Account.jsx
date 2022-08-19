@@ -16,10 +16,12 @@ const Account = () => {
   const { user } = useAuth();
   // const { data: doctors, isPending } = useFetch('http://localhost:8000/doctors')
 
+  const id = user && user.uid
+
   const { doctors, patients } = useData();
 
-  const doctor = doctors && doctors.find(d => d.userId === user.uid)
-  const patient = patients && patients.find(p => p.userId === user.uid)
+  const doctor = doctors && doctors.find(d => d.userId === id)
+  const patient = patients && patients.find(p => p.userId === id)
 
   console.log('doctor', doctor)
   console.log('patient', patient)
@@ -52,7 +54,7 @@ const Account = () => {
             <div className="account_top">
               <h3>Welcome <span>{doctor? doctor && doctor.name : patient && patient.name}</span></h3>
               <div className="account_photo">
-                <img src={user.photoURL} alt="" />
+                <img src={user && user.photoURL} alt="" />
               </div>
             </div>
             {doctor !== undefined ? <>

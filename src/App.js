@@ -32,7 +32,7 @@ function App() {
   const [viewDoc, setViewDoc] = useState(null)
   const [viewDoctor, setViewDoctor] = useState(null)
 
-  console.log('user', user.uid)
+  // console.log('user', user.uid)
 
 
   useEffect(() => {
