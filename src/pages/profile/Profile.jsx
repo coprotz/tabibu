@@ -6,6 +6,7 @@ import useFetch from '../../components/hook/useFetch';
 import SingleDoctor from '../doctors/SingleDoctor';
 import SinglePatient from '../../components/singlePatient/SinglePatient';
 import useData from '../../components/hook/useData';
+import NotFound from './NotFound';
 
 
 
@@ -19,6 +20,7 @@ const Profile = () => {
     const doctor = doctors && doctors.find((d) => d.userId === id)
     const patient = patients && patients.find((d) => d.userId === id)
 
+    console.log('doctor', doctor)
     console.log('doc', doctors)
 
     const RenderProfile = () => {
@@ -30,10 +32,15 @@ const Profile = () => {
             return (
                 <SinglePatient patient={patient}/>
             )
+        }else {
+            return (
+                <NotFound/>
+            )
         }
     }
 
   return (
+    
   <>
   {RenderProfile()}
   </>

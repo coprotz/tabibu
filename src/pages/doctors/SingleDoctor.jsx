@@ -9,6 +9,8 @@ import { addDoc, collection } from 'firebase/firestore';
 import { ImSpinner5 } from "react-icons/im";
 import Reviews from './Reviews';
 import Appointment from './Appointment';
+import { BsStar,BsStarFill } from "react-icons/bs";
+import Review from './Review';
 // import useFetch from '../../components/hook/useFetch';
 
 
@@ -27,6 +29,22 @@ const SingleDoctor = ({doctor}) => {
     const [err, setErr] = useState('')
     const [loading, setLoading] = useState(null)
     const [msgAlert, setMsgAlert] = useState('')
+
+    const reviews = [ 1,2,3,4,5]
+
+    const rate = 3.1;
+
+    const RenderReview = (value) => {
+        if(value > rate){
+            return (
+                <BsStar className='review_svg'/>
+            )
+        }else {
+            return (
+                <BsStarFill className='review_svg'/>
+            )
+        }
+    }
 
     const data = {
         members: [`${doctor.userId}`, `${user.uid}`]
@@ -51,6 +69,7 @@ const SingleDoctor = ({doctor}) => {
 
     const [page, setPage] = useState(1)
     const [appointment, setAppointment] = useState(null)
+    const [review, setReview] = useState(null)
 
     const RenderPage = () => {
         if(page === 1){
@@ -106,7 +125,7 @@ const SingleDoctor = ({doctor}) => {
                 <div className="profile_inner_group">
                     {/* <label htmlFor="">LANGUAGES</label> */}
                     <div className="doc_specs">
-                        {doctor && doctor.languages.map((l,index) => (
+                        {doctor && doctor.lang.map((l,index) => (
                             <h3 key={index} className="profile_detail_item">{l}</h3>
                         ))}
                     </div>
@@ -115,7 +134,7 @@ const SingleDoctor = ({doctor}) => {
             )
         }else if(page === 4){
             return (                
-               <Reviews/>            
+               <Reviews RenderReview={RenderReview} reviews={reviews} rate={rate} setReview={setReview}/>            
             )
         }
     }
@@ -125,6 +144,9 @@ const SingleDoctor = ({doctor}) => {
         {appointment &&
             <Appointment doctor={doctor} setAppointment={setAppointment} msgAlert={msgAlert} setMsgAlert={setMsgAlert}/>  
         }  
+         {review &&
+            <Review doctor={doctor} setReview={setReview} msgAlert={msgAlert} setMsgAlert={setMsgAlert}/>  
+        } 
         {msgAlert && <div className='msgAlert'>{msgAlert}</div>}
         <div className="view_doc_container">
             <div className="doc_view_top">
@@ -145,12 +167,19 @@ const SingleDoctor = ({doctor}) => {
                     <h1>{doctor && doctor.name}</h1> 
                     <div className="doctor_feedback">
                         <div className="doctor_patients">
-                            <small>Total Patients attended</small>
+                            <small>Total Patients attends</small>
                             <h2>{doctorRooms && doctorRooms.length}</h2>
                         </div>
                         <div className="doctor_star">
-                            <small>Patients Feedback</small>
-                            <div> 4 stairs</div>
+                            <small>Patients Reviews</small>
+                            <div className='patients_reviews'>
+                                {reviews.map((value, index) => (
+                                    <span key={index}>
+                                    {RenderReview(value)}
+                                    </span>
+                                
+                                ))}
+                            </div>
                            
                         </div>
                     </div>  

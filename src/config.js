@@ -10,7 +10,7 @@ import {
     // signOut, 
     // signInWithEmailLink, 
     // signInWithEmailAndPassword,
-    getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut,
+    getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut,
     // sendSignInLinkToEmail, 
     // isSignInWithEmailLink,
     // createUserWithEmailAndPassword
@@ -39,7 +39,7 @@ export function AuthProvider({ children }){
   const [user, setUser] = useState({})
   function googleSignIn(){
     const provider = new GoogleAuthProvider();
-    return signInWithPopup(auth, provider)
+    return signInWithRedirect(auth, provider)
   }
 
   function logOut(){

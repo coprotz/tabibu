@@ -148,3 +148,33 @@
     border: none;
     color: #aaa;
 }
+
+.member_messages{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.member_msg{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    /* border: 1px solid red; */
+}
+
+.member_name{
+    font-weight: 700;
+    font-size: 15px;
+    color: #aaa;
+}
+
+.member_text{
+    width: 20ch;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.chat_time{
+    font-size: 12px;
+}

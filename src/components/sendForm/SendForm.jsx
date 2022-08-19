@@ -14,12 +14,23 @@ import SendImage from './SendImage';
 
 const SendForm = ({currentRoom}) => {
   const { user } = useAuth()
-  const {doctors} = useData()
+  const {doctors, patients, privates} = useData()
   const [attached, setAttached] = useState(null)
   const { uid, photoURL, displayName } = user
   const doctor = doctors && doctors.find(d => d.userId === uid)
+  const patient = patients && patients.find(p => p.userId === uid)
   const [message, setMessage] = useState('')
-  const [loading, setLoding] = useState(null)   
+  const [loading, setLoding] = useState(null) 
+  
+
+
+  const room = privates && privates.find((p) => p.id === currentRoom)
+
+  const memberId = room && room.members.find(m => m !== uid)
+
+  
+  console.log('memberId', memberId)
+
 
   const messageRef = collection(db, 'messages')
   const [document, setDocument] = useState(null)
@@ -49,6 +60,7 @@ const SendForm = ({currentRoom}) => {
             createdAt: serverTimestamp(),
             text: message,
             room: currentRoom,
+            memberId: room ? memberId : 'all',
             displayName: doctor ? doctor.name : displayName
     }
 

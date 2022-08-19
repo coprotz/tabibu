@@ -1,19 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { HiDotsVertical, HiOutlineArrowLeft, HiSearch } from "react-icons/hi";
-import Nav from '../../components/nav/Nav'
+// import Nav from '../../components/nav/Nav'
 // import { departments, doctors } from '../../data'
 import './depart.css'
 import doc1 from '../../components/images/doc2.jpg'
-import { doc } from 'firebase/firestore';
-import { ProfileContext } from '../../components/hook/context/ProfileContext';
-import ViewDoctor from '../../components/viewDoctor/ViewDoctor';
+// import { doc } from 'firebase/firestore';
+// import { ProfileContext } from '../../components/hook/context/ProfileContext';
+// import ViewDoctor from '../../components/viewDoctor/ViewDoctor';
 import ChatRoom from '../chatroom/ChatRoom';
-import InviteDoc from '../../components/invitedoc/InviteDoc';
-import useFetch from '../../components/hook/useFetch';
+// import InviteDoc from '../../components/invitedoc/InviteDoc';
+// import useFetch from '../../components/hook/useFetch';
 import { useAuth } from '../../config';
 import useData from '../../components/hook/useData';
-import DoctorCard from '../../components/doctorcard/DoctorCard';
+import DoctorCard from '../../pages/doctors/doctorcard/DoctorCard';
 
 
 

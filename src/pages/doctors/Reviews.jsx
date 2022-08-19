@@ -1,16 +1,23 @@
 import React from 'react'
+import { BsStar,BsStarFill } from "react-icons/bs";
 
-const Reviews = () => {
+const Reviews = ({reviews, RenderReview, rate, setReview}) => {
   return (
     <>
         <div className="reviews_top">
             <h3>Reviews Summary</h3>
-            <button className='btn_review'>Write a review</button>
+            <button className='btn_review' onClick={() => setReview(true)}>Write a review</button>
         </div>
         <div className="review_summary">
-            <h1>4.1</h1>
+            <h1>{rate}</h1>
             <div className="review_stars">
-                <div className="stars_items">ddd</div>
+                <div className="stars_items">
+                    {reviews.map((value, index) => (
+                        <span key={index}>
+                            {RenderReview(value)}
+                        </span>
+                    ))}
+                </div>
                 <span>13 reviews</span>
             </div>            
         </div>

@@ -21,6 +21,17 @@
     gap: 10px;
 }
 
+.depart_last{
+    display: flex;
+    flex-direction: column;
+}
+
+.last_user_msg{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
 .btn{
     background-color: transparent;
     border: none;
@@ -190,6 +201,16 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.depart_image{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+
 
 .depart-doctors{
     display: flex;

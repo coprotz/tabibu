@@ -30,23 +30,23 @@ const Verify = ({props}) => {
     <div className='patient_wrapper'>
       <div className="register_top">
         <button onClick={() => setType(1)}  className='btn_clear'><BsArrowLeft/></button>
-        <h2 className="register_title">Doctor Verification Page</h2>
+        <h2 className="register_title">Verify your License with MAT</h2>
       </div>   
       {err && <span className='error'>{err}</span>} 
-      <div className="fields_group">
-        <h4 className='field_label'>Please enter your registration #</h4>
-        <div className="register_selection">                       
+      {/* <div className="fields_group"> */}
+        <h4 className='field_label'>Please enter your license #</h4>
+        {/* <div className="register_selection">                        */}
           <input 
             type="text"  
-            className='field_input'
+            className='reg_input'
             name='account'
             // value={form.dob}
             {...register("account", { required: true })}
             // onChange ={(e) => setForm({...form, dob: e.target.value})}
             // onChange={e => setDob(e.target.value)}
             />
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
       <div className='handle_register'>
           <button onClick={handleVerify} className='btn_register'>Verify</button>
       </div>

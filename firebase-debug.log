@@ -1,0 +1,84 @@
+[debug] [2022-08-15T09:28:27.626Z] ----------------------------------------------------------------------
+[debug] [2022-08-15T09:28:27.628Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Ally Mbaya\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2022-08-15T09:28:27.628Z] CLI Version:   9.16.6
+[debug] [2022-08-15T09:28:27.628Z] Platform:      win32
+[debug] [2022-08-15T09:28:27.628Z] Node Version:  v16.14.0
+[debug] [2022-08-15T09:28:27.629Z] Time:          Mon Aug 15 2022 12:28:27 GMT+0300 (East Africa Time)
+[debug] [2022-08-15T09:28:27.629Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-08-15T09:28:27.679Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-08-15T09:28:27.679Z] > authorizing via signed-in user (qsallya@gmail.com)
+[debug] [2022-08-15T09:28:27.679Z] [iam] checking project tabibu-91af3 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2022-08-15T09:28:27.681Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tabibu-91af3:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-08-15T09:28:29.207Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 15 Aug 2022 09:28:29 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1301","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-08-15T09:28:29.210Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/tabibu-91af3/serviceAccounts/tabibu-91af3@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-08-15T09:28:30.680Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 15 Aug 2022 09:28:30 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'tabibu-91af3'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2022-08-15T09:28:32.120Z] Validating nodejs source
+[debug] [2022-08-15T09:28:34.858Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "14"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.14.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-08-15T09:28:34.858Z] Building nodejs source
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2022-08-15T09:28:34.860Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/tabibu-91af3/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2022-08-15T09:28:34.861Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/tabibu-91af3/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2022-08-15T09:28:34.861Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/tabibu-91af3/services/cloudbuild.googleapis.com  
+ 
+[debug] [2022-08-15T09:28:37.152Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 15 Aug 2022 09:28:37 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-08-15T09:28:37.166Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 15 Aug 2022 09:28:37 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-08-15T09:28:37.177Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 15 Aug 2022 09:28:37 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-08-15T09:28:37.179Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tabibu-91af3/adminSdkConfig  
+ 
+[debug] [2022-08-15T09:28:38.592Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 15 Aug 2022 09:28:38 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-08-15T09:28:38.594Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/tabibu-91af3/configs  
+ 
+[debug] [2022-08-15T09:28:39.743Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 15 Aug 2022 09:28:39 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-08-15T09:28:39.746Z] Analyzing nodejs backend spec
+[debug] [2022-08-15T09:28:39.869Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/tabibu-91af3/locations/-/functions  
+ 
+[debug] [2022-08-15T09:28:40.849Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 15 Aug 2022 09:28:40 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-08-15T09:28:41.214Z] TypeError: Cannot read properties of undefined (reading 'length')
+    at Object.functionMatchesAnyGroup (C:\Users\Ally Mbaya\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\functionsDeployHelper.js:10:23)
+    at C:\Users\Ally Mbaya\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\deploymentPlanner.js:28:56
+    at Array.filter (<anonymous>)
+    at calculateRegionalFunctionChanges (C:\Users\Ally Mbaya\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\deploymentPlanner.js:28:17)
+    at Object.createDeploymentPlan (C:\Users\Ally Mbaya\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\deploymentPlanner.js:78:50)
+    at release (C:\Users\Ally Mbaya\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release.js:28:48)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: An unexpected error has occurred.

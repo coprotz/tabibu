@@ -1,23 +1,41 @@
 import React, { useState } from 'react'
 import { HiMenuAlt4, HiOutlineGlobeAlt } from "react-icons/hi";
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './nav.css'
 import { useAuth } from '../../config';
-import { MdClear, MdNotificationsNone } from "react-icons/md";
+import { MdClear } from "react-icons/md";
 import qr from '../../components/images/qrcode.png'
 import Notific from '../notific/Notific';
 import useData from '../hook/useData';
+import {  BsBell } from "react-icons/bs";
+// import MsgNotCard from '../msgNotifications/MsgNotCard';
+// import MsgNots from '../msgNotifications/MsgNots';
 
 const Nav = () => {
 
   const { user, logOut } = useAuth()
   const [menu, setMenu] = useState(null)
   const [viewNot, setViewNot] = useState(null) 
+  // const [viewMsg, setViewMsg] = useState(null)
   
-  const { doctors, patients, notifications } = useData();
+  const { doctors, notifications } = useData();
+
+  const id = user && user.uid
 
   const doctor = doctors && doctors.find((d) => d.userId === user && user.uid)
-  const patient = patients && patients.find((d) => d.userId === user && user.uid)
+  // const patient = patients && patients.find((d) => d.userId === user && user.uid) 
+  // const userRooms = messages && messages.filter(m => m.uid.includes(user && user.uid))
+  const userNots = notifications && notifications.filter((n) => n.userId !== id && id) 
+
+  const reads = userNots && userNots.filter((n) => n.isRead.includes(user && user.uid))
+  const unReads = userNots && userNots.length - reads.length
+
+  console.log('reads', reads.length);
+  console.log('unReads', unReads);
+
+  // console.log('unRead', unRead.length)
+
+
 
  
 
@@ -29,23 +47,22 @@ const Nav = () => {
  
   return (
     <nav>
-       
-        <div className="app-name">TABIBU<strong>CHAT</strong></div>
-        
+        <div className="app-name" onClick={() =>navigate('/')}>TABIBU<strong>CHAT</strong></div>
+        <button className='btn-lang'><HiOutlineGlobeAlt/></button>
+        {user && 
         <div className="app-nav-left">
-          {user && 
+            {/* <div className="view_msg">
+              <span className='span_notific'></span>             
+            </div> */}
             <div className="notific_app">
-              <span className='span_notific'>{notifications && notifications.length}</span>
-              <button className='btn_notific' onClick={() => setViewNot(true)}><MdNotificationsNone/></button>
+              {unReads > 0 &&
+              <span className='span_notific'></span>}             
+                <button className='btn_msg' onClick={() => setViewNot(!viewNot)}><BsBell/></button>
                 {viewNot &&        
-                  <Notific  setViewNot={setViewNot} notifications={notifications}/>              
+                  <Notific  setViewNot={setViewNot} userNots={userNots} unReads={unReads} viewNot={viewNot}/>              
                 }
  
-            </div> 
-          }
-            
-            <button className='btn-lang'><HiOutlineGlobeAlt/> English</button>
-            {user && <>           
+            </div>                    
               
             <button className='btn-menu' onClick={() => setMenu(true)}><HiMenuAlt4/></button>
               {menu &&
@@ -82,10 +99,7 @@ const Nav = () => {
                     
                   </div>
                 </div>}
-          
-              </>
-            }
-        </div>
+        </div> }
     </nav>
   )
 }

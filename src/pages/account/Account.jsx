@@ -8,6 +8,7 @@ import Home from './Home'
 import Appointments from './Appointments'
 import Labs from './Labs'
 import useData from '../../components/hook/useData'
+import Patient from '../patients/Patient'
 
 
 const Account = () => {
@@ -15,12 +16,13 @@ const Account = () => {
   const { user } = useAuth();
   // const { data: doctors, isPending } = useFetch('http://localhost:8000/doctors')
 
-  const { doctors } = useData();
+  const { doctors, patients } = useData();
 
-  const currentDoctor = doctors && doctors.find(d => d.userId === user.uid)
+  const doctor = doctors && doctors.find(d => d.userId === user.uid)
+  const patient = patients && patients.find(p => p.userId === user.uid)
 
-  console.log('curr', doctors)
-  console.log('user', user.uid)
+  console.log('doctor', doctor)
+  console.log('patient', patient)
 
 
 
@@ -48,11 +50,12 @@ const Account = () => {
           <Nav />
           
             <div className="account_top">
-              <h3>Welcome <span>{currentDoctor && currentDoctor.name}</span></h3>
+              <h3>Welcome <span>{doctor? doctor && doctor.name : patient && patient.name}</span></h3>
               <div className="account_photo">
                 <img src={user.photoURL} alt="" />
               </div>
             </div>
+            {doctor !== undefined ? <>
             <div className="account_menu">
               <span>Home</span>
               <span>Appointments</span>
@@ -63,6 +66,11 @@ const Account = () => {
               <span>Payments</span>
             </div>
             {RenderPage()}
+            
+            </>
+            : 
+            <Patient patient={patient}/>
+            }
             
         </div>
     

@@ -5,6 +5,7 @@ import { db, useAuth } from '../../config';
 
 const Appointment = ({setAppointment, doctor, setMessage}) => {
     const { user } = useAuth()
+    const { uid, displayName, photoURL } = user
     const [date, setDate] = useState('')
     const [time, setTime] = useState('')
     const [reason, setReason] = useState('')
@@ -20,10 +21,13 @@ const Appointment = ({setAppointment, doctor, setMessage}) => {
 
         const data = {
             date,
+            displayName,
+            photoURL,
             time,
             reason,
             doctorId: doctor.userId,
-            patientId: user.uid
+            isRead:[],
+            patientId: uid
         }
         try {
            await addDoc(appointmentsRef, data)

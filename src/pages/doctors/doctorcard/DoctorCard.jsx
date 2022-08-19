@@ -1,5 +1,5 @@
 import React from 'react'
-import doc1 from '../images/doc2.jpg'
+// import doc1 from '../images/doc2.jpg'
 import { useNavigate } from 'react-router-dom'
 import './doctorcard.css'
 

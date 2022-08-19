@@ -9,6 +9,25 @@
     color: white;
     padding: 0 0 10px 0;
 }
+
+.sign_in{
+    margin: 15px 0;
+}
+
+.login_social{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+    margin: 45px 0;
+}
+
+.login_social button{
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    color: #043366;
+}
 .lang_change{
     width: 100%;
     display: flex;

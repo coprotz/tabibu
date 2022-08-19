@@ -46,12 +46,50 @@
 }
 
 .dept-item{
-    padding: 1.2vh 10px;
+    padding: 0.3vh 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     /* background-color: #3266f8; */
     color: #032b97;
     font-weight: 600;
     font-size: 1.2em;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.depart_qty{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c2cef1;
+    /* padding: 5px; */
+    border-radius: 25px;
+    height: 25px;
+    min-width: 25px;
+    max-width: 50px;
+    padding: 3px;
+    /* aspect-ratio: 1; */
+}
+
+.depart_time{
+    color: #c2cef1;
+    font-size: 14px;
+}
+
+.depart_text{
+    width: 12ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    margin-left: 3px;
+}
+
+.depart_name_1{
+    font-size: 14px;
+    width: fit-content;
+    /* border: 1px solid red; */
 }
 
 .pr-chats-wrapper{
@@ -186,5 +224,10 @@
     background-color: red;
 }
 
+.depart_status{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 
 

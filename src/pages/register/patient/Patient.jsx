@@ -16,7 +16,7 @@ import Smoke from './Smoke'
 import Plan from './Plan'
 import Payment from './Payment'
 
-const Patient = () => {
+const Patient = ({setType}) => {
 
   const { register,  watch, formState: { isValid, isSubmitting, isSubmitSuccessful } } = useForm({mode: 'all'});
 
@@ -32,7 +32,7 @@ const Patient = () => {
   })
 
 
-  const props = { register, watch, isValid, page, setPage, form, setForm }
+  const props = { register, watch, isValid, page, setPage, form, setForm , setType}
   
 
     const RenderPage = () => {

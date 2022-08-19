@@ -7,7 +7,7 @@ import ViewDoctor from '../../components/viewDoctor/ViewDoctor'
 import {  HiOutlineArrowLeft } from "react-icons/hi";
 import { useNavigate } from 'react-router-dom'
 import './doctors.css'
-import DoctorCard from '../../components/doctorcard/DoctorCard'
+import DoctorCard from '../doctors/doctorcard/DoctorCard'
 import InviteDoc from '../../components/invitedoc/InviteDoc'
 import useFetch from '../../components/hook/useFetch'
 import useData from '../../components/hook/useData';
@@ -28,10 +28,7 @@ const Doctors = () => {
     const [searchTerm, setSearchTerm] = useState("")
 
   return (
-    <div className='doctors_wrapper'>
-        {/* {viewDoctor && 
-            <ViewDoctor />
-        } */}
+    <div className='doctors_wrapper' style={{backgroundColor: '#043366'}}>      
         <div className="doctors_top">
             <button onClick={() => navigate('/')} className='btn'><HiOutlineArrowLeft/></button>
             <h3>Select a Doctor to request new Consultation</h3>

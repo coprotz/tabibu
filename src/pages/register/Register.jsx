@@ -75,11 +75,11 @@ const Register = () => {
             )
         }else if(type === 2){
             return (
-                <Patient />
+                <Patient setType={setType}/>
             )
         }else if(type === 3){
             return (
-                <Doctor />
+                <Doctor setType={setType}/>
             )
         }
     }

@@ -332,3 +332,11 @@ export const applicants = [
     {id: '111111', name: 'Dr. Kachwere M', phone: '+255767157057' },
     {id: '222222', name: 'Dr. Mandonga M', phone: '+255767157057' },
 ]
+
+export const languages = [
+    {id: '41514s51w5', name: 'English'},
+    {id: '41514ssd51w5', name: 'Swahili'},
+    {id: '41514s5wed1w5', name: 'Franch'},
+    {id: '41514sdfvv51w5', name: 'Arabic'},
+    {id: '41514dedffs51w5', name: 'Hindu'}
+]
