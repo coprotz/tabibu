@@ -1,5 +1,6 @@
 import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore';
 import React, { useState } from 'react'
+import { ImAccessibility } from 'react-icons/im';
 import { useNavigate } from 'react-router-dom';
 import { auth, db, useAuth } from '../config';
 import useData from './hook/useData';
@@ -7,16 +8,17 @@ import useData from './hook/useData';
 
 
 
-const MessageCard = ({message, doctor, currentRoom, setDisplayImage}) => {
+const MessageCard = ({message, doctor, currentRoom, setDisplayImage, setAlert}) => {
 
     const { user } = useAuth()
-    const { privates, doctors } = useData()
+    const { privates, doctors, patients } = useData()
     const {  id, text, uid, createdAt, displayName, photoURL, caption} = message;
     const messageClass = uid === user.uid ? 'sent' : 'received';
     const bgClass = uid === user.uid ? 'blue' : 'grey';
     const [showActionButtons, setShowActionsButtons] = useState(false);
     const doctorRooms = privates && privates.filter((p) => p.members.find(m => m.includes(doctor && doctor.userId)))
     const isMember = doctorRooms && doctorRooms.find((p) => p.members.find(m => m.includes(uid)))
+    const isActive = patients && patients.find(p => p.userId === uid)
     // const dr = doctors && doctors.find((d) => d.userId === user.uid)
 
     // console.log('isMember', isMember)
@@ -37,13 +39,20 @@ const MessageCard = ({message, doctor, currentRoom, setDisplayImage}) => {
     const navigate = useNavigate()
     const handlePrivate = async (e) => {
         e.preventDefault()
+
+
         const data = {
             members: [`${user.uid}`, `${uid}`]
           }
   
-        console.log('data', data)
+        // console.log('data', data)
         try {
-          if(isMember){
+
+          if(!isActive){
+           setAlert(`${displayName} is not found or temporary disabled`)
+          }
+
+          else if(isMember){
             navigate(navigate(`/privates/${isMember.id}`))
           }else 
           {        

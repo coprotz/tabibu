@@ -41,9 +41,9 @@ function App() {
     }, 5000)
   }, [])
 
-  // const RequireAuth = () => {
-  //   return user? <Department/> : <Navigate to="/login"/>
-  // }
+  const RequireAuth = ({children}) => {
+    return user ? (children) : <Navigate to="/login"/>
+  }
 
   return (
     <div className='app'>
@@ -52,24 +52,24 @@ function App() {
         <BrowserRouter>
           <Routes>          
             <Route exact path='/' element={
-              // <RequireAuth>
+              <RequireAuth>
                 <Home />
-              // </RequireAuth>
+              </RequireAuth>
               }/>
             <Route path='/depart/:id' element={
-              // <RequireAuth>
+              <RequireAuth>
                 <Department />
-              // </RequireAuth>              
+              </RequireAuth>              
               }/>
               <Route path='/privates/:id' element={
-              // <RequireAuth>
+              <RequireAuth>
                 <PrivateRoom user={user} privates={privates}  doctors={doctors} departments={departments} messages={messages}/>
-              // </RequireAuth>              
+              </RequireAuth>              
               }/>
             <Route path='/doctors' element={
-              // <RequireAuth>
+              <RequireAuth>
                 <Doctors user={user} privates={privates} doctors={doctors} departments={departments}/>
-              // </RequireAuth>            
+              </RequireAuth>            
             }/>
              {/* <Route path='/register' element={
               <RequireAuth>
@@ -77,15 +77,15 @@ function App() {
               </RequireAuth>            
             }/> */}
             <Route path='/profile/:id' element={
-              // <RequireAuth>
+              <RequireAuth>
                 <Profile/>
-              // </RequireAuth>
+              </RequireAuth>
             
             }/>
              <Route path='/account' element={
-              // <RequireAuth>
+              <RequireAuth>
                 <Account/>
-              // </RequireAuth>
+               </RequireAuth>
             
             }/>
             <Route path='/login' element={<Login/>}/>

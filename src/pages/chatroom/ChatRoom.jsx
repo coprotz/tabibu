@@ -19,6 +19,7 @@ const ChatRoom = ({currentRoom}) => {
     const { user } = useAuth()
     const doctor = doctors && doctors.find(d => d.userId === user.uid)
     const scrollRef = React.useRef(null);
+    const [alert, setAlert] = useState("")
 
     
 
@@ -34,6 +35,14 @@ const ChatRoom = ({currentRoom}) => {
 
   return (
     <div className='messages' >
+      {alert &&
+      <div className="alert_message_overlay">
+        <div className="alert_message">
+          <h1>Oops...!!</h1>
+          {alert}
+          <button onClick={() => setAlert("")}>OK</button>
+        </div>
+      </div>}
         {displayImage &&
         <div className="display_image_outer">
           <div className="disply_image_top">
@@ -56,7 +65,8 @@ const ChatRoom = ({currentRoom}) => {
                       doctor={doctor}
                       currentRoom={currentRoom} 
                       key={message.id}
-                      setDisplayImage={setDisplayImage}   
+                      setDisplayImage={setDisplayImage}  
+                      setAlert={setAlert} 
                   />
                 </div>
             ))}       
